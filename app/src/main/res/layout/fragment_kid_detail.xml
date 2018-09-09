@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBg"
+    android:orientation="vertical"
+    tools:context=".activies.profile.kid.KidDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/include_profile_header" />
+
+            <include layout="@layout/include_kid_detail_content" />
+
+            <include layout="@layout/include_kid_histories" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnStartTest"
+        style="@style/MatchParentWidth"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_done_no_border_button"
+        android:text="@string/btn_start"
+        android:textColor="@color/colorWhite"
+        android:visibility="gone"/>
+
+</LinearLayout>

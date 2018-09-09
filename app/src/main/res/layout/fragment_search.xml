@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin"
+        tools:context=".activies.tutorial.SearchFragment">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_splash_screen" />
+
+        <TextView
+            style="@style/StyleLabel"
+            android:layout_marginTop="@dimen/activity_vertical_margin_content"
+            android:text="@string/str_input_history_code" />
+
+        <EditText
+            android:id="@+id/edtHistoryId"
+            style="@style/StyleInputText"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:hint="@string/str_hint_code"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            style="@style/WrapContent"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin_content"
+            android:background="@drawable/selector_login_button"
+            android:ems="10"
+            android:text="@string/btn_search"
+            android:textColor="@color/colorWhite" />
+
+    </LinearLayout>
+</ScrollView>

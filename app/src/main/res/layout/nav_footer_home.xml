@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/relSetting"
+        style="@style/StyleSettingItem">
+
+        <ImageView
+            android:id="@+id/imgSetting"
+            android:layout_width="@dimen/icon_slide_menu"
+            android:layout_height="@dimen/icon_slide_menu"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_setting"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvSetting"
+            style="@style/StyleLabel"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/imgSetting"
+            android:layout_toRightOf="@id/imgSetting"
+            android:text="@string/btn_Setting"
+            android:textAllCaps="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relLogout"
+        style="@style/StyleSettingItem">
+
+        <ImageView
+            android:id="@+id/imgLogout"
+            android:layout_width="@dimen/icon_slide_menu"
+            android:layout_height="@dimen/icon_slide_menu"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_logout"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvLogout"
+            style="@style/StyleLabel"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/imgLogout"
+            android:layout_toRightOf="@id/imgLogout"
+            android:text="@string/btn_logout"
+            android:textAllCaps="true" />
+    </RelativeLayout>
+
+</merge>

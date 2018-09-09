@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <TextView
+        android:id="@+id/tvChooseCamera"
+        style="@style/StyleSettingItem"
+        android:drawableLeft="@drawable/icon_camera"
+        android:drawablePadding="@dimen/activity_vertical_margin"
+        android:gravity="center_vertical"
+        android:text="@string/str_choose_camera"
+        android:textColor="@color/inputLabelColor" />
+
+    <include layout="@layout/include_line" />
+
+    <TextView
+        android:id="@+id/tvChooseGallery"
+        style="@style/StyleSettingItem"
+        android:drawableLeft="@drawable/icon_library"
+        android:drawablePadding="@dimen/activity_vertical_margin"
+        android:gravity="center_vertical"
+        android:text="@string/str_choose_gallery"
+        android:textColor="@color/inputLabelColor" />
+</LinearLayout>

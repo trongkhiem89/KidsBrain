@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relHome"
+    style="@style/StyleSettingItem">
+
+    <ImageView
+        android:id="@+id/imgHome"
+        android:layout_width="@dimen/icon_slide_menu"
+        android:layout_height="@dimen/icon_slide_menu"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_home"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvHome"
+        style="@style/StyleLabel"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_toEndOf="@id/imgHome"
+        android:layout_toRightOf="@id/imgHome"
+        android:text="@string/btn_home"
+        android:textAllCaps="true" />
+</RelativeLayout>
+

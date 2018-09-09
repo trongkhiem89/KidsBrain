@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f53d3d</color>
+    <color name="colorPrimaryDark">#f53d3d</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccentDialog">#009688</color>
+
+    <color name="colorBg">#DCDCDC</color>
+    <color name="colorSelected">#DBEFFD</color>
+    <color name="colorMenuItem">#FFFFFF</color>
+
+    <color name="slideMenuSelected">@color/colorSelected</color>
+    <color name="slideMenuUnSelected">@color/colorWhite</color>
+
+    <color name="textColorIntroduce">#f53d3d</color>
+    <color name="colorIntroduceOne">#ED4A42</color>
+    <color name="colorIntroduceTwo">#F59A37</color>
+    <color name="colorIntroduceThree">#00B57A</color>
+
+    <color name="card">@color/colorWhite</color>
+    <color name="cardSelected">#F5F5F5</color>
+
+    <color name="colorGreen">#00CC7B</color>
+    <color name="colorGreenSelected">#4CAF50</color>
+
+    <color name="colorRed">#f53d3d</color>
+    <color name="colorRedSelected">#D32F2F</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlueSky">#2A99D6</color>
+    <color name="colorBlue">#006FE8</color>
+    <color name="colorOrange">#EA7D37</color>
+    <color name="colorYellow">#F2C342</color>
+    <color name="colorDark">#2B3E4F</color>
+    <color name="colorLine">#DCDCDC</color>
+
+    <color name="inputLabelColor">#3E2723</color>
+    <color name="inputTextColor">#3E2723</color>
+</resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        style="@style/MatchParentWidth"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_vertical_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/shape_border_white"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <!--<com.kidbrain.view.custom.CircleImageView
+            android:id="@+id/imgUserAvatar"
+            android:layout_width="@dimen/logo_icon_size"
+            android:layout_height="@dimen/logo_icon_size"
+            android:layout_below="@id/imbEditProfile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:src="@drawable/logo_1"
+            app:border_color="@color/colorWhite"
+            app:border_width="2dp" />-->
+
+        <ImageView
+            android:id="@+id/imgUserAvatar"
+            android:layout_width="@dimen/logo_icon_size"
+            android:layout_height="@dimen/logo_icon_size"
+            android:layout_below="@id/imbEditProfile"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:contentDescription="@null"
+            android:scaleType="centerInside"
+            tools:src="@drawable/icon_user" />
+
+        <TextView
+            android:id="@+id/tvUserName"
+            style="@style/StyleLabel"
+            android:layout_below="@+id/imgUserAvatar"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/nav_header_vertical_spacing"
+            tools:text="Profile" />
+
+        <ImageButton
+            android:id="@+id/imbEditProfile"
+            android:layout_width="@dimen/icon_slide_menu"
+            android:layout_height="@dimen/icon_slide_menu"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/nav_header_vertical_spacing"
+            android:background="@drawable/selector_icon_edit_profile"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter" />
+    </RelativeLayout>
+</merge>

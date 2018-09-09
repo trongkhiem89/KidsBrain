@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/relAddChildren"
+        style="@style/MatchParentWidth"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/selector_white"
+        android:padding="@dimen/activity_vertical_margin">
+
+        <TextView
+            style="@style/StyleLabel"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgUserAvatar"
+            android:text="@string/str_kids" />
+
+        <ImageView
+            android:id="@+id/imgArrow"
+            android:layout_width="@dimen/icon_size_small"
+            android:layout_height="@dimen/icon_size_small"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_arrow_right" />
+
+    </RelativeLayout>
+</merge>

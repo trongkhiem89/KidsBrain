@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llIntroRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".activies.introduce.IntroduceActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/introducePages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="@dimen/activity_horizontal_margin" />
+
+    <LinearLayout
+        android:id="@+id/introduceCriclesGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_horizontal_margin" />
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@drawable/selector_login_button"
+        android:ems="10"
+        android:text="@string/btn_continue"
+        android:textColor="@color/colorWhite"
+        android:visibility="invisible" />
+
+</LinearLayout>

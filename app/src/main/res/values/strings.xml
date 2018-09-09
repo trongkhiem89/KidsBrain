@@ -1,0 +1,164 @@
+<resources>
+    <string name="facebook_app_id">238954300276557</string>
+    <string name="fb_login_protocol_scheme">fb238954300276557</string>
+
+    <string name="key_pin">KidsBrainByKhiemNT</string>
+    <string name="app_name">Kids Brain</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Kids Brain</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Kids Brain</string>
+    <string name="action_settings">Thiết lập</string>
+    <string name="title_activity_login">Đăng ký</string>
+    <string name="title_activity_search">Tìm kiếm</string>
+
+    <string name="btn_login">Đăng nhập</string>
+    <string name="btn_signup">Đăng ký</string>
+    <string name="btn_forgot_password">Quên mật khẩu</string>
+    <string name="btn_done">Hoàn thành</string>
+    <string name="btn_ok">Đồng ý</string>
+    <string name="btn_yes">Đồng ý</string>
+    <string name="btn_no">Từ chối</string>
+    <string name="btn_cancel">Huỷ bỏ</string>
+    <string name="btn_close">Đóng</string>
+    <string name="btn_send">Gửi</string>
+    <string name="btn_save">Lưu</string>
+    <string name="btn_start">Bắt đầu</string>
+    <string name="btn_back">Quay lại</string>
+    <string name="btn_register">Đăng ký</string>
+    <string name="btn_continue">Tiếp tục</string>
+    <string name="btn_Edit">Sửa</string>
+    <string name="btn_home">Trang chủ</string>
+    <string name="btn_Change">Thay đổi</string>
+    <string name="btn_Setting">Thiết lập</string>
+    <string name="btn_logout">Đăng xuất</string>
+    <string name="btn_add_kid">Thêm con</string>
+    <string name="btn_contact">Hỗ trợ</string>
+    <string name="btn_delete">Xoá</string>
+    <string name="btn_search">Tìm kiếm</string>
+    <string name="btn_save_result">Lưu kết quả</string>
+    <string name="btn_contact_support">Hỗ trợ</string>
+    <string name="btn_change">Thay đổi</string>
+
+    <string-array name="languages">
+        <item name="VI">Tiếng Việt</item>
+        <item name="EN">Tiếng Anh</item>
+    </string-array>
+
+    <string-array name="testOptions">
+        <item name="1">Trẻ bình thường</item>
+        <item name="2">Trẻ Tự Kỷ</item>
+        <item name="3">Trẻ bại não</item>
+    </string-array>
+
+    <string name="dialog_title">Kids Brain</string>
+    <string name="dialog_message_sigin">Đăng nhập&#8230;</string>
+    <string name="dialog_message_loading">Đang tải&#8230;</string>
+    <string name="dialog_message_saving">Đang lưu&#8230;</string>
+    <string name="dialog_message_updating">Đang cập nhật&#8230;</string>
+    <string name="dialog_message_sending">Đang gửi&#8230;</string>
+    <string name="dialog_message_searching">Đang tìm kiếm&#8230;</string>
+    <string name="dialog_confirm_ok">Đồng ý</string>
+    <string name="dialog_confirm_cancel">Huỷ bỏ</string>
+
+    <string name="str_introduce_1">Giúp cha mẹ kiểm tra quá trình phát triển và nhận biết các biểu hiện của trẻ qua những bài kiểm tra. </string>
+    <string name="str_introduce_2">Giúp cha mẹ nhận biết vận động nhận thức của con </string>
+    <string name="str_introduce_3">Nhận biết cử chỉ, cảm xúc và các dấu hiệu nghi ngại</string>
+
+    <string name="error_network">Kiểm tra kết nối mạng và thử lại !</string>
+    <string name="error_network_timeout">Lỗi kết nối!</string>
+    <string name="error_empty_email">Nhập email</string>
+    <string name="error_empty_username">Nhập họ tên đầy đủ</string>
+    <string name="error_empty_address">Nhập địa chỉ</string>
+    <string name="error_empty_note">Nhập nội dung</string>
+    <string name="error_empty_phone_number">Nhập số điện thoại</string>
+    <string name="error_empty_birth_day">Nhập ngày sinh</string>
+    <string name="error_empty_history_code">Nhập mã số bài kiểm tra</string>
+    <string name="error_invalid_birth_day">Ngày sinh phải nhỏ hơn ngày hiện tại</string>
+    <string name="error_format_phone_number">Định dạng số điện thoại không đúng </string>
+    <string name="error_empty_password">Nhập mật khẩu</string>
+    <string name="error_empty_new_password">Nhập mật khẩu mới</string>
+    <string name="error_empty_password_confirm">Nhập lại mật khẩu</string>
+    <string name="error_password_not_match">Mật khẩu không trùng nhau</string>
+    <string name="error_valid_email">Định dạng email chưa đúng</string>
+    <string name="error_valid_password">Mật khẩu phải từ 8&#8211;64 ký tự</string>
+    <string name="error_create_or_open_db_failed">Create or open database failed!</string>
+    <string name="error_data_not_found">Không có dữ liệu!</string>
+    <string name="error_sign_up">Đăng ký không thành công, vui lòng thử lại !</string>
+    <string name="error_internal">Có lỗi xảy ra vui lòng thử lại</string>
+
+    <string name="str_send_via">Gửi Email</string>
+    <string name="str_no_email_app">Không có ứng dụng gửi Email</string>
+    <string name="str_sending">Đang gửi&#8230;</string>
+    <string name="str_empty_data">Không có dữ liệu.</string>
+    <string name="str_do_not_account">Chưa có tài khoản ?</string>
+    <string name="str_have_an_account">Đã có tài khoản ?</string>
+    <string name="str_username">Tài khoản</string>
+    <string name="str_password">Mật khẩu</string>
+    <string name="str_retype_password">Nhập lại mật khẩu</string>
+    <string name="str_email">Email</string>
+    <string name="str_fullName">Họ và tên</string>
+    <string name="str_phone_number">Số điện thoại</string>
+    <string name="str_date_of_birth">Ngày sinh</string>
+    <string name="str_date_of_birth_hint">dd/mm/yyyy</string>
+    <string name="str_gender">Giới tính</string>
+    <string name="str_male">Nam</string>
+    <string name="str_female">Nữ</string>
+    <string name="str_address">Địa chỉ</string>
+    <string name="str_logout_confirm_message">Bạn muốn đăng xuất tài khoản ?</string>
+    <string name="str_tutorial">Hướng dẫn sử dụng</string>
+    <string name="str_change_language">Đổi ngôn ngữ</string>
+    <string name="str_app_info">Thông tin ứng dụng</string>
+    <string name="str_share">Chia sẻ</string>
+    <string name="str_change_password">Đổi mật khẩu</string>
+    <string name="str_choose_camera">Chụp ảnh</string>
+    <string name="str_choose_gallery">Thư viện</string>
+    <string name="str_language">Ngôn ngữ</string>
+    <string name="str_history">Lịch sử</string>
+    <string name="str_kids">Danh sách con</string>
+    <string name="str_app_version">Phiên bản</string>
+    <string name="str_app_build_date">Ngày</string>
+    <string name="str_welcome">Xin chào %s!</string>
+    <string name="str_booking">Đặt lịch tư vấn</string>
+    <string name="str_booking_success">Đã đặt lịch!</string>
+    <string name="str_Consultant">Tư vấn cho tôi</string>
+    <string name="str_send_result">Gửi kết quả</string>
+    <string name="str_send_result_success">Đã gửi kết quả!</string>
+    <string name="str_note">Nội dung</string>
+    <string name="str_kid_delete_confirm_message">Bạn muốn xoá thông trẻ ?</string>
+    <string name="str_old">%s tuổi</string>
+    <string name="str_month">%s tháng</string>
+    <string name="str_score">Điểm: %s</string>
+    <string name="str_input_history_code">Nhập mã số bài kiểm tra</string>
+    <string name="str_hint_code">Mã số</string>
+    <string name="str_choose_option_test">Chọn hình thức kiểm tra</string>
+    <string name="str_test_option_coming_soon">Ứng dụng chưa hỗ trợ tính năng này!</string>
+    <string name="str_testing_exit_confirm">Bạn chưa hoành thành bài kiểm tra, Kết quả sẽ không được lưu ?</string>
+    <string name="str_testing_completed">Bạn đã hoành thành bài kiểm tra, nhấp đống ý để xem kết quả!</string>
+    <string name="str_forgot_password_have_problem">Bạn gặp vấn đề đăng nhập?</string>
+    <string name="str_forgot_password_type_your_mail">Nhập hòm thư của bạn và chúng tôi sẽ gửi một thư yêu cầu tạo lại mật khẩu.</string>
+    <string name="str_forgot_your_email">Quên email?</string>
+    <string name="str_forgot_your_email_contact_support">Liên hệ nhóm hỗ trợ.</string>
+    <string name="str_send_forgot_password_success">Đã gửi!</string>
+    <string name="str_current_password">Mật khẩu hiện tại</string>
+    <string name="str_new_password">Mật khẩu mới</string>
+    <string name="str_new_password_confirm">Nhập lại mật khẩu mới</string>
+    <string name="str_update_password_success">Mật khẩu mới đã đươc cập nhật!</string>
+
+    <string name="str_help_text">Bộ test bao gồm các câu hỏi được chia vào các nhóm: Vận động (tinh, thô), ngôn ngữ, nhận thức, kỹ năng sống, tình cảm xã hội/cảm xúc, các dấu hiệu nghi ngại.
+\n\nNgười đánh giá, sẽ quan sát các trạng thái, hoạt động của bé theo các câu hỏi sẵn có. Xem xét bé đạt được hay không đạt được. Và làm cho đến hết bài test.
+\n\nKhi kết thúc bài test sẽ có phần kết quả khuyến nghị. Người hỗ trợ bé, sẽ làm theo các bước được hướng dẫn một cách chính xác nhất. Nếu có bất cứ câu hỏi gì về phần hướng dẫn này, hay sau khi đã hỗ trợ các bé và test lại mà vẫn chưa đạt kết quả mong muốn. Xin hãy thông tin lại với chung tôi để được hỗ trợ tốt nhất!
+\n\nEmail: sucmanhbentrong@gmail.com
+\nĐT: 0967178984 (gọi trong giờ hành chính hoặc nhắn tin trước khi gọi)
+\nĐịa chỉ: MN Trúc Lâm 25H1 Khu đô thị Yên Hòa, Cầu Giấy, Hà Nội.
+</string>
+    <string name="str_app_info_text">Thông thường, rất ít người để ý đến sự phát triển của con như thế nào là bình thường. Đôi khi thấy một em bé chậm lẫy, chậm bò (3 tháng biết lẫy, 7 tháng biết bò) thì mọi người cho rằng, em bé đó “trốn lẫy, trốn bò” . Nhưng thực chất em bé đó đang có một pha chậm chễ trong sự phát triển của mình..
+\n\nNếu được nhìn nhận đúng đắn từ sớm, thì em bé đó hoàn toàn có thể làm được và hoàn thành mốc phát triển của mình.
+\n\nBộ test dùng để đánh giá sự phát triển bình thường của một em bé từ khi sinh ra đến hết 5 tuổi.
+\n\nBộ test sử dụng nguồn của trung tâm: Mid-State Early Childhood Direction.
+\n\nDịch, tổng hợp cho điểm, và đưa ra kết quả khuyến nghị: Ms Nguyễn Thanh Ngà
+\nTư vấn sau khi đánh giá Ms Nguyễn Thanh Ngà và cộng sự.
+</string>
+
+</resources>

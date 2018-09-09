@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/StyleBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorIntroduceThree"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <ImageView
+        android:layout_width="@dimen/introduce_size"
+        android:layout_height="@dimen/introduce_size"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/introduce_dau_hieu_nghi_ngai" />
+
+    <TextView
+        style="@style/StyleTextIntro"
+        android:layout_marginTop="@dimen/introduce_margin"
+        android:text="@string/str_introduce_3"
+        android:textColor="@color/colorWhite" />
+
+
+</LinearLayout>

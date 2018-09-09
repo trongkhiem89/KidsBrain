@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/StyleBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activies.results.ResultSurveyActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/llRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        style="@style/MatchParentWidth"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/colorSelected"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnConsultant"
+            style="@style/StyleLabel"
+            android:layout_weight="1"
+            android:background="@drawable/selector_white"
+            android:text="@string/str_send_result"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnBooking"
+            style="@style/StyleLabel"
+            android:layout_marginLeft="0.3dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_white"
+            android:text="@string/str_booking"
+            android:textStyle="bold" />
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

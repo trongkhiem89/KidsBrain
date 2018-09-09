@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".activies.results.BookingActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <ScrollView
+        style="@style/StyleBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_margin_content">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="@dimen/logo_icon_size"
+                android:layout_height="@dimen/logo_icon_size"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_splash_screen" />
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/str_fullName" />
+
+            <EditText
+                android:id="@+id/edtFullName"
+                style="@style/StyleInputText"
+                android:inputType="textPersonName" />
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/str_phone_number" />
+
+            <EditText
+                android:id="@+id/edtPhoneNumber"
+                style="@style/StyleInputText"
+                android:inputType="phone" />
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/str_email" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                style="@style/StyleInputText"
+                android:inputType="textEmailAddress" />
+
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/str_note" />
+
+            <EditText
+                android:id="@+id/edtNote"
+                style="@style/StyleInputText"
+                android:layout_height="90dp"
+                android:gravity="start"
+                android:hint="@string/str_note"
+                android:inputType="textLongMessage"
+                android:maxLines="4"
+                android:minLines="4" />
+
+
+            <Button
+                android:id="@+id/btnBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin_content"
+                android:background="@drawable/selector_login_button"
+                android:ems="6"
+                android:text="@string/btn_send"
+                android:textColor="@color/colorWhite" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

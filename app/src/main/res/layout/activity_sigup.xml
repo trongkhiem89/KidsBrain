@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".activies.authorization.SignUpActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <ScrollView
+        style="@style/StyleBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_margin_content">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="@dimen/logo_icon_size"
+                android:layout_height="@dimen/logo_icon_size"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_splash_screen" />
+
+            <TextView
+                style="@style/StyleTitleLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/btn_signup" />
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/str_email" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                style="@style/StyleInputText"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/str_password" />
+
+            <EditText
+                android:id="@+id/edtPassword"
+                style="@style/StyleInputText"
+                android:inputType="textPassword" />
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/str_retype_password" />
+
+            <EditText
+                android:id="@+id/edtRetypePassword"
+                style="@style/StyleInputText"
+                android:inputType="textPassword" />
+
+            <RelativeLayout
+                style="@style/MatchParentWidth"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSignUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/selector_login_button"
+                    android:ems="6"
+                    android:text="@string/btn_signup"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/tvBackToLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/selector_transparent_gray"
+                    android:padding="8dp"
+                    android:text="@string/str_have_an_account" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

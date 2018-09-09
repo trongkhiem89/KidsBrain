@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/colorWhite"-->
+        <!--android:orientation="vertical">-->
+
+        <!--Phone call-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconPhoneCall"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_phone_number" />
+
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconPhoneCall"
+                android:layout_toRightOf="@+id/iconPhoneCall"
+                tools:text="0901512678" />
+        </RelativeLayout>
+
+        <include layout="@layout/include_line_margin_with_icon" />
+
+        <!--Email-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconEmail"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_email" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconEmail"
+                android:layout_toRightOf="@+id/iconEmail"
+                tools:text="khiemnt@wisekey.com" />
+        </RelativeLayout>
+
+        <include layout="@layout/include_line_margin_with_icon" />
+
+        <!--Date of birth-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconDateOfBirth"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_date" />
+
+            <TextView
+                android:id="@+id/tvDateOfBirth"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconDateOfBirth"
+                android:layout_toRightOf="@+id/iconDateOfBirth"
+                tools:text="22/12/1989" />
+        </RelativeLayout>
+
+        <include layout="@layout/include_line_margin_with_icon" />
+
+        <!--Date of birth-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconGender"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_gender" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconGender"
+                android:layout_toRightOf="@+id/iconGender"
+                tools:text="Nam" />
+        </RelativeLayout>
+
+        <include layout="@layout/include_line_margin_with_icon" />
+
+        <!--Address-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconAddress"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_address" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconAddress"
+                android:layout_toRightOf="@+id/iconAddress"
+                tools:text="So 38, Ngo 72, Ton That Tung, Dong Da, Ha Noi" />
+        </RelativeLayout>
+
+
+    <!--</LinearLayout>-->
+</merge>

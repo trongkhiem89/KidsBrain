@@ -1,0 +1,33 @@
+<resources>
+    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="activity_vertical_margin">64dp</dimen>
+    <dimen name="activity_vertical_margin_content">96dp</dimen>
+    <dimen name="nav_header_vertical_spacing">32dp</dimen>
+    <dimen name="nav_header_height">352dp</dimen>
+    <dimen name="fab_margin">64dp</dimen>
+    <dimen name="list_left_margin">278dp</dimen>
+    <dimen name="btn_radius">20dip</dimen>
+    <dimen name="radius">40dip</dimen>
+
+    <dimen name="introduce_size">600dp</dimen>
+    <dimen name="logo_icon_size">200dp</dimen>
+    <dimen name="icon_size_small">68dp</dimen>
+    <dimen name="icon_slide_menu">88dp</dimen>
+    <dimen name="home_category_item_height">160dp</dimen>
+    <dimen name="home_kid_item_height">120dp</dimen>
+    <dimen name="category_text_margin">220dp</dimen>
+    <dimen name="slide_icon_height">120dp</dimen>
+
+    <dimen name="input_margin">32dp</dimen>
+    <dimen name="introduce_margin">64dp</dimen>
+
+    <dimen name="font_size_intro">28sp</dimen>
+    <dimen name="font_size_small">24sp</dimen>
+    <dimen name="font_size_normal">28sp</dimen>
+    <dimen name="font_size_large">32sp</dimen>
+    <dimen name="font_size_x_large">36sp</dimen>
+
+</resources>

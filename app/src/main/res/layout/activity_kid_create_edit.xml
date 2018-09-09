@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".activies.profile.kid.KidCreateUpdateActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <ScrollView
+        style="@style/StyleBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_vertical_margin_content">
+
+            <!--<com.kidbrain.view.custom.CircleImageView
+                android:id="@+id/imgUserAvatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/logo"
+                app:border_color="@color/colorPrimary"
+                app:border_width="1dp" />-->
+            <ImageView
+                android:id="@+id/imgUserAvatar"
+                android:layout_width="@dimen/logo_icon_size"
+                android:layout_height="@dimen/logo_icon_size"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@null"
+                android:scaleType="centerInside"
+                tools:src="@drawable/icon_user" />
+
+            <Button
+                android:id="@+id/btnChangeAvatar"
+                style="@style/WrapContent"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/selector_transparent_gray"
+                android:paddingLeft="2dp"
+                android:text="@string/btn_Change" />
+
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin_content"
+                android:text="@string/str_fullName" />
+
+            <EditText
+                android:id="@+id/edtFullName"
+                style="@style/StyleInputText"
+                android:inputType="textPersonName" />
+
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin_content"
+                android:text="@string/str_date_of_birth" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtDateOfBirth"
+                    style="@style/StyleInputText"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:hint="@string/str_date_of_birth_hint"
+                    android:inputType="date" />
+
+                <ImageButton
+                    android:id="@+id/btnDateOfBirth"
+                    android:layout_width="@dimen/icon_slide_menu"
+                    android:layout_height="@dimen/icon_slide_menu"
+                    android:background="@drawable/icon_date"
+                    android:contentDescription="@null" />
+            </LinearLayout>
+
+
+            <TextView
+                style="@style/StyleInputLabel"
+                android:layout_marginTop="@dimen/activity_vertical_margin_content"
+                android:text="@string/str_gender" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    style="@style/StyleInputText"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/str_male" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    style="@style/StyleInputText"
+                    android:layout_weight="1"
+                    android:text="@string/str_female" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnSave"
+                style="@style/WrapContent"
+                android:layout_marginTop="@dimen/activity_vertical_margin_content"
+                android:background="@drawable/selector_login_button"
+                android:text="@string/btn_save"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

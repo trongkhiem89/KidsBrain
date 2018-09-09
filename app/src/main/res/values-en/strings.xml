@@ -1,0 +1,170 @@
+<resources>
+    <string name="app_name">KidsBrain</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_search">Search</string>
+
+    <string name="btn_active">Active</string>
+    <string name="btn_skip">Skip</string>
+    <string name="btn_change">Change</string>
+    <string name="btn_login">Sign in</string>
+    <string name="btn_signup">Create account</string>
+    <string name="btn_forgot_password"> Forgot password</string>
+    <string name="btn_done">Completed</string>
+    <string name="btn_ok">Yes</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_send">Send</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_start">Start</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_register">Sign in</string>
+    <string name="btn_continue">Continue</string>
+    <string name="btn_Edit">Edit</string>
+    <string name="btn_home">Home</string>
+    <string name="btn_Change">Edit</string>
+    <string name="btn_Setting">Settings</string>
+    <string name="btn_logout">Sign out</string>
+    <string name="btn_add_kid">Add kids</string>
+    <string name="btn_contact">Help</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_search">Search</string>
+    <string name="btn_save_result">Save result</string>
+    <string name="btn_contact_support">Contact Support</string>
+
+    <string-array name="languages">
+        <item name="VI">Vietnamese</item>
+        <item name="EN">English</item>
+    </string-array>
+
+    <string name="dialog_title">Kids Brain</string>
+    <string name="dialog_message_sigin">Sign in&#8230;</string>
+    <string name="dialog_message_loading">Loading&#8230;</string>
+    <string name="dialog_message_saving">Saving&#8230;</string>
+    <string name="dialog_message_updating">Updating&#8230;</string>
+    <string name="dialog_message_sending">Sending&#8230;</string>
+    <string name="dialog_message_searching">Searching&#8230;</string>
+    <string name="dialog_confirm_ok">Yes</string>
+    <string name="dialog_confirm_cancel">Cancel</string>
+
+    <string name="str_introduce_1"> Help parents follow the development and recognizing process of their childs. </string>
+    <string name="str_introduce_2">Help parent identify the cognition of their kids </string>
+    <string name="str_introduce_3">Identify the behaviors, emotions and developmental red flags</string>
+
+    <string name="error_network">Check the network connection and try again!</string>
+    <string name="error_network_timeout">Error connection!</string>
+    <string name="error_empty_email">Email</string>
+    <string name="error_empty_username">Full name</string>
+    <string name="error_empty_address">Address</string>
+    <string name="error_empty_note">Note</string>
+    <string name="error_empty_phone_number">Phone number</string>
+    <string name="error_empty_birth_day">Date of birth</string>
+    <string name="error_empty_history_code">Input a code</string>
+    <string name="error_invalid_birth_day">Birhday has to be smaller than current date</string>
+    <string name="error_format_phone_number">Wrong phone number format </string>
+    <string name="error_empty_password">Password</string>
+    <string name="error_empty_new_password">New password</string>
+    <string name="error_empty_password_confirm">Confirm password</string>
+    <string name="error_password_not_match">Passwords do not match</string>
+    <string name="error_valid_email">Wrong email format</string>
+    <string name="error_valid_password">Use from 8&#8211; to 64 characters for your password</string>
+    <string name="error_create_or_open_db_failed">Create or open database failed!</string>
+    <string name="error_data_not_found">Data not found!</string>
+    <string name="error_sign_up">Fail to register, please try again!</string>
+    <string name="error_internal">Error, please try again</string>
+
+    <string name="str_send_via">Send via Email</string>
+    <string name="str_no_email_app">Unable to send email</string>
+    <string name="str_sending">Sending&#8230;</string>
+    <string name="str_empty_data">Empty.</string>
+    <string name="str_do_not_account">Don’t have an account?</string>
+    <string name="str_have_an_account">Have an account?</string>
+    <string name="str_username">Username</string>
+    <string name="str_password">Password</string>
+    <string name="str_retype_password">Confirm password</string>
+    <string name="str_email">Email</string>
+    <string name="str_fullName">Fullname</string>
+    <string name="str_phone_number">Phone number</string>
+    <string name="str_date_of_birth">Date of birth</string>
+    <string name="str_date_of_birth_hint">dd/mm/yyyy</string>
+    <string name="str_gender">Gender</string>
+    <string name="str_male">Male</string>
+    <string name="str_female">Female</string>
+    <string name="str_address">Address</string>
+    <string name="str_logout_confirm_message">Sign out?</string>
+    <string name="str_tutorial">Instructions</string>
+    <string name="str_change_language">Change language</string>
+    <string name="str_app_info">Information</string>
+    <string name="str_share">Share</string>
+    <string name="str_change_password">Change password</string>
+    <string name="str_choose_camera">Camera</string>
+    <string name="str_choose_gallery">Gallery</string>
+    <string name="str_language">Languages</string>
+    <string name="str_history">History</string>
+    <string name="str_kids">List of kids</string>
+    <string name="str_app_version">Version</string>
+    <string name="str_app_build_date">Date</string>
+    <string name="str_welcome">Welcome %s!</string>
+    <string name="str_booking">Booking</string>
+    <string name="str_booking_success">Booking success!</string>
+    <string name="str_Consultant">Consult me</string>
+    <string name="str_send_result">Send results</string>
+    <string name="str_send_result_success">Send results success!</string>
+    <string name="str_note">Content</string>
+    <string name="str_kid_delete_confirm_message">Delete?</string>
+    <string name="str_old">%s years</string>
+    <string name="str_month">%s months</string>
+    <string name="str_score">Score: %s</string>
+    <string name="str_input_history_code">Input a code</string>
+    <string name="str_hint_code">Code</string>
+    <string name="str_choose_option_test">Choose an option to continue</string>
+    <string name="str_test_option_coming_soon">The feature coming soon!</string>
+    <string name="str_testing_completed">The test is completed, please press Yes to get the result! </string>
+    <string name="str_forgot_password_have_problem">Have signing in problem?</string>
+    <string name="str_forgot_password_type_your_mail">Type your email address and we will send you an email to reset your password.</string>
+    <string name="str_forgot_your_email">Forgot your email?</string>
+    <string name="str_forgot_your_email_contact_support">Please contact to our support team.</string>
+    <string name="str_update_password_success">Password is updated!</string>
+    <string name="str_current_password">Current password</string>
+    <string name="str_new_password">New password</string>
+    <string name="str_new_password_confirm">Confirm new password</string>
+
+    <string name="str_help_text"> The test includes the questions separated into different groups: Motor skills (fine motor, gross motor), languages, cognitive process, life skills, social emotions, developmental red flags.
+\n\n The consultant will observe the child’s reactions and activities upon the questions to evaluate.
+\n\n After completing the test, users will get the result. Parents should follow the recommendation of consultant mentioned in this result. If parents have any questions or need to support, please feel free to contact us!
+\n\nEmail: sucmanhbentrong@gmail.com
+\nPhone number: 0967178984 (in office hours or texting before call)
+\nAddress: Truc Lam kindergarten, 25H1, Yen Hoa urban area, Cau Giay district, Hanoi.
+</string>
+    <string name="str_app_info_text">Regularly, there’s a few people knowing that what is the normal development of a kid. When a baby doesn’t roll over by 3 months or doesn’t crawl by 7 months, parents think that their kid is lazy. But that fact shows the delay of their child’s development.
+\n\n If parents identify this soon, that child will be still on the right developmental path.
+\n\n The test is used for evaluation the normal development of a children that is from newborn to 5 years old.
+\n\n The source of test: Mid-State Early Childhood Direction.
+\n\n Translating, finalizing and scoring by: Ms. Nguyen Thanh Nga
+\n Consulting by Ms. Nguyen Thanh Nga and associates.
+</string>
+
+
+    <!--Permission text-->
+    <string name="permission_record_audio">RECORD AUDIO</string>
+    <string name="permission_access_coarse_location">ACCESS_COARSE_LOCATION</string>
+    <string name="permission_access_fine_location">ACCESS_FINE_LOCATION</string>
+    <string name="permission_read_contacts">READ_CONTACTS</string>
+    <string name="permission_write_contacts">WRITE_CONTACTS</string>
+    <string name="permission_write_ex_storage">WRITE_EXTERNAL_STORAGE</string>
+    <string name="permission_read_ex_storage">READ_EXTERNAL_STORAGE</string>
+    <string name="permission_camera">CAMERA</string>
+    <string name="permission_get_account">GET_ACCOUNTS</string>
+    <string name="permission_guide">You need to allow Token app to access the following dangerous permissions to use this app:</string>
+    <string name="permission_denied_and_guide_to_setting">Permission denied! Please enable all permissions from permissions Token app setting</string>
+    <string name="error_camera_permission">Camera is not enabled. Do you want to go to setting menu</string>
+
+
+</resources>

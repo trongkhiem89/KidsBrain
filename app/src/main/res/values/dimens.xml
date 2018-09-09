@@ -1,0 +1,31 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin_content">24dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="list_left_margin">72dp</dimen>
+    <dimen name="btn_radius">5dip</dimen>
+    <dimen name="radius">10dip</dimen>
+
+    <dimen name="introduce_size">300dp</dimen>
+    <dimen name="logo_icon_size">100dp</dimen>
+    <dimen name="icon_size_small">34dp</dimen>
+    <dimen name="icon_slide_menu">44dp</dimen>
+    <dimen name="home_category_item_height">80dp</dimen>
+    <dimen name="home_kid_item_height">100dp</dimen>
+    <dimen name="category_text_margin">110dp</dimen>
+    <dimen name="slide_icon_height">60dp</dimen>
+    <dimen name="add_children_size">56dp</dimen>
+
+    <dimen name="input_margin">8dp</dimen>
+    <dimen name="introduce_margin">32dp</dimen>
+
+    <dimen name="font_size_intro">14sp</dimen>
+    <dimen name="font_size_small">12sp</dimen>
+    <dimen name="font_size_normal">14sp</dimen>
+    <dimen name="font_size_large">16sp</dimen>
+    <dimen name="font_size_x_large">18sp</dimen>
+</resources>

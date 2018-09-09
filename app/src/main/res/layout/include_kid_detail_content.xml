@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@color/colorWhite"-->
+        <!--android:orientation="vertical">-->
+
+
+        <!--Email-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconFullName"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_fullname" />
+
+            <TextView
+                android:id="@+id/tvFullName"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconFullName"
+                android:layout_toRightOf="@+id/iconFullName"
+                tools:text="My Son" />
+        </RelativeLayout>
+
+        <include layout="@layout/include_line_margin_with_icon" />
+
+        <!--Date of birth-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconDateOfBirth"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_date" />
+
+            <TextView
+                android:id="@+id/tvDateOfBirth"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconDateOfBirth"
+                android:layout_toRightOf="@+id/iconDateOfBirth"
+                tools:text="22/12/1989" />
+        </RelativeLayout>
+
+        <include layout="@layout/include_line_margin_with_icon" />
+
+        <!--Date of birth-->
+        <RelativeLayout style="@style/StyleSettingItem">
+
+            <ImageView
+                android:id="@+id/iconGender"
+                style="@style/StyleIconSmall"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/icon_gender" />
+
+            <TextView
+                android:id="@+id/tvGender"
+                style="@style/StyleLabel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/nav_header_vertical_spacing"
+                android:layout_marginStart="@dimen/nav_header_vertical_spacing"
+                android:layout_toEndOf="@+id/iconGender"
+                android:layout_toRightOf="@+id/iconGender"
+                tools:text="Nam" />
+        </RelativeLayout>
+
+        <include layout="@layout/include_line_margin_with_icon" />
+
+    <!--</LinearLayout>-->
+</merge>

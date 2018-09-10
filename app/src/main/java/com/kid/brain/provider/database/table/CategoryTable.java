@@ -54,7 +54,7 @@ public class CategoryTable extends BaseTable {
 
         if (!checkExistCategory(levelId, String.valueOf(category.getId()), sqliteDb)) {
             ContentValues values = new ContentValues();
-            values.put(ICategoryTable.COLUMN_CATE_ID, category.getId());
+            values.put(ICategoryTable.COLUMN_CATE_ID, String.valueOf(category.getId()));
             values.put(ICategoryTable.COLUMN_LEVEL_ID, levelId);
             values.put(ICategoryTable.COLUMN_NAME, category.getName());
             values.put(ICategoryTable.COLUMN_ICON, category.getIcon());
@@ -74,7 +74,7 @@ public class CategoryTable extends BaseTable {
         if (null == category) return 0;
 
         ContentValues values = new ContentValues();
-        values.put(ICategoryTable.COLUMN_CATE_ID, category.getId());
+        values.put(ICategoryTable.COLUMN_CATE_ID, String.valueOf(category.getId()));
         values.put(ICategoryTable.COLUMN_LEVEL_ID, levelId);
         values.put(ICategoryTable.COLUMN_NAME, category.getName());
         values.put(ICategoryTable.COLUMN_ICON, category.getIcon());

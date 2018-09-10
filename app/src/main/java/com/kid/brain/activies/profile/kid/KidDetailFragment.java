@@ -48,6 +48,8 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -248,6 +250,14 @@ public class KidDetailFragment extends BaseFragment {
     private void displayHistories() {
         hideSkeletonScreenLoading();
         if (mHistories != null && mHistories.size() > 0) {
+            if (mHistories.size() > 1) {
+                Collections.sort(mHistories, new Comparator<History>() {
+                    @Override
+                    public int compare(History o1, History o2) {
+                        return o2.getDate().compareTo(o1.getDate());
+                    }
+                });
+            }
             adapter.setData(mHistories);
         }
     }

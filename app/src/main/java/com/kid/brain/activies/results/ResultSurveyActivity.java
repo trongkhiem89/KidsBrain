@@ -376,7 +376,16 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
 
                                     }
                                 } else {
-                                    showErrorDialog(responseResult.getError());
+                                    DialogUtil.createCustomOkDialog(ResultSurveyActivity.this,
+                                            getString(R.string.app_name),
+                                            getString(R.string.error_data_not_found),
+                                            getString(R.string.btn_close),
+                                            new DialogUtil.DialogOnClickListener() {
+                                                @Override
+                                                public void onOKButtonOnClick() {
+                                                    ResultSurveyActivity.this.finish();
+                                                }
+                                            }).show();
                                 }
                             } else if (responseResult.getError() != null) {
                                 String message = responseResult.getError().getMessage();

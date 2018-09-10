@@ -15,11 +15,11 @@ import com.google.gson.Gson;
 import com.kid.brain.R;
 import com.kid.brain.activies.checklist.CheckListActivity_;
 import com.kid.brain.managers.application.BaseFragment;
+import com.kid.brain.managers.help.KidBean;
 import com.kid.brain.managers.listeners.IOnItemClickListener;
 import com.kid.brain.models.Category;
 import com.kid.brain.models.Kid;
 import com.kid.brain.models.Level;
-import com.kid.brain.provider.database.KidRepository;
 import com.kid.brain.provider.request.APIService;
 import com.kid.brain.provider.request.HeaderSession;
 import com.kid.brain.provider.request.RetrofitConfig;
@@ -163,7 +163,8 @@ public class CategoriesFragment extends BaseFragment {
                                     if (mCategories.size() > 0) {
                                         displayCategories();
                                         try {
-                                            KidRepository.getInstance(getActivity()).saveCategories(mKid.getAgeId(), mCategories);
+                                            KidBean.getInstance().saveCategoriesByLevel(mKid.getAgeId(), mCategories);
+//                                            KidRepository.getInstance(getActivity()).saveCategories(mKid.getAgeId(), mCategories);
                                         } catch (Exception e) {
                                             e.printStackTrace();
                                         }
@@ -233,6 +234,8 @@ public class CategoriesFragment extends BaseFragment {
             intentProduct.putExtra(Constants.KEY_KID, mKid);
             intentProduct.putExtra(Constants.KEY_CATE, mCategory);
             startActivity(intentProduct);
+            if (getActivity() != null)
+                getActivity().finish();
         }
 
         @Override

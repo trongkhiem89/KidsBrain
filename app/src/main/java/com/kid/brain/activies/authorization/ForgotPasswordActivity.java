@@ -34,6 +34,8 @@ import retrofit2.Response;
 @EActivity(R.layout.activity_forgot_password)
 public class ForgotPasswordActivity extends BaseAppCompatActivity {
 
+    private final String TAG = ForgotPasswordActivity.class.getName();
+
     @ViewById
     Toolbar toolbar;
 

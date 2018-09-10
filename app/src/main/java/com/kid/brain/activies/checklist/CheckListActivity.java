@@ -80,7 +80,8 @@ public class CheckListActivity extends BaseAppCompatActivity implements IActivit
                 @Override
                 public void run() {
                     try {
-                        mCategories = KidRepository.getInstance(CheckListActivity.this).getCategories(mKid.getAgeId());
+                        mCategories = KidBean.getInstance().getCategories(mKid.getAgeId());
+//                        mCategories = KidRepository.getInstance(CheckListActivity.this).getCategories(mKid.getAgeId());
                         for (Category c : mCategories) {
                             if (c.getId() == mCategory.getId()) {
                                 mCategories.remove(c);
@@ -212,8 +213,8 @@ public class CheckListActivity extends BaseAppCompatActivity implements IActivit
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    mRateId = "";
-                    mScore = -1;
+                    mRateId = "0";
+                    mScore = 0;
                     mQuestionIds = "";
                 }
             }

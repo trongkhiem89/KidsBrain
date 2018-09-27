@@ -161,11 +161,13 @@ public class SettingsFragment extends BaseFragment {
         showProgressBar(getContext(), getString(R.string.dialog_message_updating));
         HeaderSession header = new HeaderSession();
         PasswordParams params = new PasswordParams(currentPassword, newPassword);
+        String userId = KidPreference.getStringValue(KidPreference.KEY_USER_ID);
 
         APIService apiService = RetrofitConfig.getInstance(getActivity()).getRetrofit().create(APIService.class);
         Call<AccountResponse> callUser = apiService.updatePassword(
                 header.getContentType(),
                 header.getLanguageCode(),
+                Long.parseLong(userId),
                 params);
         callUser.enqueue(new Callback<AccountResponse>() {
             @Override

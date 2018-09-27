@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,6 +19,7 @@ import com.kid.brain.models.Kid;
 import com.kid.brain.models.QuestionScore;
 import com.kid.brain.provider.database.KidRepository;
 import com.kid.brain.util.Constants;
+import com.kid.brain.util.log.ALog;
 import com.kid.brain.view.dialog.DialogUtil;
 
 import org.androidannotations.annotations.AfterExtras;
@@ -99,6 +101,11 @@ public class CheckListActivity extends BaseAppCompatActivity implements IActivit
 
     @AfterViews
     void afterViews() {
+        if (mAccount == null) {
+            this.finish();
+            return;
+        }
+
         setUpToolbarWithBackButton(toolbar, mAccount.getFullNameOrEmail());
         replaceFragment(CheckListFragment_.newInstance(mKid, mCategory));
         btnContinue.setVisibility(View.VISIBLE);
@@ -119,16 +126,27 @@ public class CheckListActivity extends BaseAppCompatActivity implements IActivit
     @Click(R.id.btnContinue)
     void doContinue() {
         mCount++;
+        ALog.e("mCount", String.valueOf(mCount));
         if (mCount == mCategories.size()) {
             btnContinue.setText(getString(R.string.btn_done));
             btnContinue.setBackgroundResource(R.drawable.selector_done_no_border_button);
         }
 
         if (mIterator.hasNext()) {
+            if (TextUtils.isEmpty(mQuestionIds) && mCategory.getId() != 8) {
+                showAlertDialog(getString(R.string.app_name), "Bạn cần chọn một đáp án!");
+                return;
+            }
+
             saveScoreToBean();
             mCategory = (Category) mIterator.next();
             onTransactionFragment(CheckListFragment_.newInstance(mKid, mCategory));
         } else {
+            if (TextUtils.isEmpty(mQuestionIds) && mCategory.getId() != 8) {
+                showAlertDialog(getString(R.string.app_name), "Bạn cần chọn một đáp án!");
+                return;
+            }
+
             DialogUtil.createCustomOkDialog(CheckListActivity.this,
                     getString(R.string.app_name),
                     getString(R.string.str_testing_completed),

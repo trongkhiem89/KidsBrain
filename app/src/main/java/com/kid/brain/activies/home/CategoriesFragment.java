@@ -181,7 +181,16 @@ public class CategoriesFragment extends BaseFragment {
                                                 }).show();
                                     }
                                 } else {
-                                    showErrorDialog(accountResponse.getError());
+                                    DialogUtil.createCustomOkDialog(getActivity(),
+                                            getString(R.string.app_name),
+                                            getString(R.string.error_data_not_found),
+                                            getString(R.string.btn_close),
+                                            new DialogUtil.DialogOnClickListener() {
+                                                @Override
+                                                public void onOKButtonOnClick() {
+                                                    getActivity().finish();
+                                                }
+                                            }).show();
                                 }
                             } else {
                                 showErrorDialog(accountResponse.getError());

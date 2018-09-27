@@ -229,7 +229,7 @@ public class DateTimeUtils {
 
         SimpleDateFormat localFormat = new SimpleDateFormat(DATE_LOCAL_FORMAT);
         SimpleDateFormat utcFormat = new SimpleDateFormat(DATE_UTC_FORMAT);
-        utcFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+//        utcFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         try {
             Date d = localFormat.parse(timeLocal);
             return utcFormat.format(d);

@@ -326,6 +326,7 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
     }
 
     void doFetchHistory(String historyId) {
+        showProgressBar();
         HeaderSession header = new HeaderSession();
         APIService apiService = RetrofitConfig.getInstance(ResultSurveyActivity.this).getRetrofit().create(APIService.class);
         Call<TestResponse> callUser = apiService.fetchHistoryDetail(
@@ -385,7 +386,9 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                                                 public void onOKButtonOnClick() {
                                                     ResultSurveyActivity.this.finish();
                                                 }
-                                            }).show();
+                                            })
+                                            .setCancelable(false)
+                                            .show();
                                 }
                             } else if (responseResult.getError() != null) {
                                 String message = responseResult.getError().getMessage();
@@ -401,7 +404,9 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                                             public void onOKButtonOnClick() {
                                                 ResultSurveyActivity.this.finish();
                                             }
-                                        }).show();
+                                        })
+                                        .setCancelable(false)
+                                        .show();
                             }
                         }
                     } else {
@@ -418,6 +423,18 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
             public void onFailure(Call<TestResponse> call, Throwable t) {
                 dismissProgressBar();
                 t.printStackTrace();
+                DialogUtil.createCustomOkDialog(ResultSurveyActivity.this,
+                        getString(R.string.app_name),
+                        getString(R.string.error_data_not_found),
+                        getString(R.string.btn_close),
+                        new DialogUtil.DialogOnClickListener() {
+                            @Override
+                            public void onOKButtonOnClick() {
+                                ResultSurveyActivity.this.finish();
+                            }
+                        })
+                        .setCancelable(false)
+                        .show();
             }
         });
     }

@@ -121,6 +121,7 @@ public class Account implements Serializable {
     }
 
     public String getMobile() {
+        if (TextUtils.isEmpty(mobile)) return "";
         return mobile;
     }
 
@@ -177,6 +178,7 @@ public class Account implements Serializable {
     }
 
     public String getPhoto() {
+        if (TextUtils.isEmpty(photo)) return "";
         return photo;
     }
 

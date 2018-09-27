@@ -24,14 +24,14 @@ import retrofit2.http.Path;
 
 public interface APIService {
 
-    String BASE_URL = "http://54.203.70.24:8080/";
+    String BASE_URL = "http://103.101.161.178/";
     String ENDPOINT = "KidsBrain/";
 
     String SIGN_IN = ENDPOINT + "user/login";
     String SIGN_UP = ENDPOINT + "user/signup";
     String UPDATE_PROFILE = ENDPOINT + "user";
     String FORGOT_PASSWORD = ENDPOINT + "user/forgotPassword";
-    String UPDATE_PASSWORD = ENDPOINT + "user/updatePassword";
+    String UPDATE_PASSWORD = ENDPOINT + "user";
 
     String LEVELS = ENDPOINT + "api/listAgeRange";
     String CATEGORIES = ENDPOINT + "api";
@@ -80,9 +80,10 @@ public interface APIService {
                                       @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
                                       @Body RequestBody email);
 
-    @PUT(APIService.UPDATE_PASSWORD)
+    @PUT(APIService.UPDATE_PASSWORD + "/{user_id}/updatePassword")
     Call<AccountResponse> updatePassword(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
                                       @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
+                                         @Path("user_id") long userId,
                                       @Body PasswordParams params);
     /*****************************************
      * Todo: KID

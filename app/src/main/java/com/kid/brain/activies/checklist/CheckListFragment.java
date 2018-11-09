@@ -15,6 +15,7 @@ import com.ethanhua.skeleton.Skeleton;
 import com.google.gson.Gson;
 import com.kid.brain.R;
 import com.kid.brain.managers.application.BaseFragment;
+import com.kid.brain.managers.application.KidApplication;
 import com.kid.brain.managers.help.KidBusiness;
 import com.kid.brain.managers.listeners.IActivityCommunicatorListener;
 import com.kid.brain.managers.listeners.IOnItemClickListener;
@@ -32,6 +33,7 @@ import com.kid.brain.provider.request.model.QuestionResponse;
 import com.kid.brain.util.Constants;
 import com.kid.brain.util.log.ALog;
 import com.kid.brain.view.adapters.QuestionAdapter;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -113,7 +115,7 @@ public class CheckListFragment extends BaseFragment {
         initialView();
         try {
             displayCategory();
-            mQuestions = KidRepository.getInstance(getActivity()).getQuestions(String.valueOf(mKid.getAgeId()), String.valueOf(mCategory.getId()));
+//            mQuestions = KidRepository.getInstance(getActivity()).getQuestions(String.valueOf(mKid.getAgeId()), String.valueOf(mCategory.getId()));
             if (mQuestions == null || mQuestions.size() == 0) {
                 doFetchQuestions();
             } else {
@@ -210,7 +212,8 @@ public class CheckListFragment extends BaseFragment {
 
     private void displayCategory() {
         if (mCategory == null || mKid == null) return;
-        setCategoryIcon(imgKidLevel, mCategory.getId());
+        ImageLoader.getInstance().displayImage(mCategory.getAvatar(), imgKidLevel, KidApplication.getInstance().getOptions());
+//        setCategoryIcon(imgKidLevel, mCategory.getId());
         tvCategory.setText(mCategory.getName());
         tvParentCategory.setText(mKid.getNameAndAge(getActivity()));
     }

@@ -44,6 +44,12 @@
         <item name="EN">English</item>
     </string-array>
 
+    <string-array name="testOptions">
+        <item name="1">Normal children</item>
+        <item name="2">Autism spectrum disorder-ASD</item>
+        <item name="3">Cerebral Palsy</item>
+    </string-array>
+
     <string name="dialog_title">Kids Brain</string>
     <string name="dialog_message_sigin">Sign in&#8230;</string>
     <string name="dialog_message_loading">Loading&#8230;</string>
@@ -125,7 +131,9 @@
     <string name="str_input_history_code">Input a code</string>
     <string name="str_hint_code">Code</string>
     <string name="str_choose_option_test">Choose an option to continue</string>
+    <string name="str_choose_a_option">Choose an answer!</string>
     <string name="str_test_option_coming_soon">The feature coming soon!</string>
+    <string name="str_testing_exit_confirm">The test is not completed, The result will not be saved? </string>
     <string name="str_testing_completed">The test is completed, please press Yes to get the result! </string>
     <string name="str_forgot_password_have_problem">Have signing in problem?</string>
     <string name="str_forgot_password_type_your_mail">Type your email address and we will send you an email to reset your password.</string>

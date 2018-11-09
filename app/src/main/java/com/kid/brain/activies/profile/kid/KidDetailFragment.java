@@ -93,6 +93,7 @@ public class KidDetailFragment extends BaseFragment {
     private RecyclerViewSkeletonScreen skeletonScreen;
 
     private String mKidId;
+    private boolean mIsView;
     private Kid mKid;
 
 
@@ -107,16 +108,30 @@ public class KidDetailFragment extends BaseFragment {
         return fragment;
     }
 
+    public static KidDetailFragment_ newInstance(Kid kid) {
+        KidDetailFragment_ fragment = new KidDetailFragment_();
+        Bundle args = new Bundle();
+        args.putSerializable(Constants.KEY_KID, kid);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @AfterInject
     void afterInject() {
         if (getArguments() != null) {
-            mKidId = getArguments().getString(Constants.KEY_KID_ID);
+//            mKidId = getArguments().getString(Constants.KEY_KID_ID);
+            Kid kid = (Kid) getArguments().getSerializable(Constants.KEY_KID);
+            if (null != kid) {
+                mKidId = kid.getChildrenId();
+                mIsView = kid.isEnableView();
+            }
         }
     }
 
     @AfterViews
     void afterViews() {
         initialView();
+        isOnlyView(mIsView);
     }
 
     @Override
@@ -158,7 +173,7 @@ public class KidDetailFragment extends BaseFragment {
 
                             dismissProgressBar();
 
-                            isOnlyView(mKid.isEnableView());
+//                            isOnlyView(mKid.isEnableView());
 
                         } else {
                             dismissProgressBar();

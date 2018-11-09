@@ -68,7 +68,6 @@ public class HomeActivity extends BaseAppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setUpToolbar(toolbar, KidPreference.getStringValue(KidPreference.KEY_FULL_NAME));
 
@@ -316,7 +315,7 @@ public class HomeActivity extends BaseAppCompatActivity
             if (mKidSelected == null) return;
 
             Intent intentEditProfile = new Intent(HomeActivity.this, KidDetailActivity_.class);
-            intentEditProfile.putExtra(Constants.KEY_KID_ID, mKidSelected.getChildrenId());
+            intentEditProfile.putExtra(Constants.KEY_KID, mKidSelected);
             startActivity(intentEditProfile);
         }
 

@@ -45,7 +45,7 @@ public class KidTable extends BaseTable {
 	}
 
     public long saveKid(Kid kid, SQLiteDatabase sqliteDb) throws Exception{
-        if (null == kid) return -1;
+        if (null == kid || Integer.parseInt(kid.getChildrenId()) == -1) return -1;
 
         if (!checkExistKid(kid.getParentId(), kid.getChildrenId(), sqliteDb)) {
             ContentValues values = new ContentValues();
@@ -177,22 +177,24 @@ public class KidTable extends BaseTable {
                 do {
                     try {
                         String kidId = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_KID_ID));
-                        String ageId = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_AGE_ID));
-                        String birthDay = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_BIRTH_DAY));
-                        String fullName = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_FULL_NAME));
-                        int gender = cursor.getInt(cursor.getColumnIndex(IKidTable.COLUMN_GENDER));
-                        String photo = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_PHOTO));
+                        if (Integer.parseInt(kidId) != -1) {
+                            String ageId = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_AGE_ID));
+                            String birthDay = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_BIRTH_DAY));
+                            String fullName = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_FULL_NAME));
+                            int gender = cursor.getInt(cursor.getColumnIndex(IKidTable.COLUMN_GENDER));
+                            String photo = cursor.getString(cursor.getColumnIndex(IKidTable.COLUMN_PHOTO));
 
-                        kid = new Kid();
-                        kid.setChildrenId(kidId);
-                        kid.setAgeId(ageId);
-                        kid.setParentId(parentId);
-                        kid.setBirthDay(birthDay);
-                        kid.setUsername(fullName);
-                        kid.setGender(gender);
-                        kid.setPhoto(photo);
+                            kid = new Kid();
+                            kid.setChildrenId(kidId);
+                            kid.setAgeId(ageId);
+                            kid.setParentId(parentId);
+                            kid.setBirthDay(birthDay);
+                            kid.setUsername(fullName);
+                            kid.setGender(gender);
+                            kid.setPhoto(photo);
 
-                        kids.add(kid);
+                            kids.add(kid);
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

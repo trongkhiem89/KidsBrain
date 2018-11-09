@@ -19,6 +19,7 @@ import com.kid.brain.managers.help.KidBusiness;
 import com.kid.brain.managers.help.KidPreference;
 import com.kid.brain.managers.listeners.IDialogOkListener;
 import com.kid.brain.models.History;
+import com.kid.brain.models.Kid;
 import com.kid.brain.models.QuestionScore;
 import com.kid.brain.models.Rate;
 import com.kid.brain.provider.database.KidRepository;
@@ -278,7 +279,7 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
             showProgressBar(getString(R.string.dialog_message_saving));
 
             String userId = KidPreference.getStringValue(KidPreference.KEY_USER_ID);
-            String kidId = mKidId;
+            final String kidId = mKidId;
 
             if (TextUtils.isEmpty(userId) || TextUtils.isEmpty(mKidId)) {
                 dismissProgressBar();
@@ -296,21 +297,23 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                 @Override
                 public void onResponse(Call<KidResponse> call, Response<KidResponse> response) {
                     try {
-                        dismissProgressBar();
                         if (WebserviceConfig.HTTP_CODE.OK == response.code()) {
                             KidResponse responseResult = response.body();
-                            if (responseResult != null && responseResult.getKid() != null) {
-                                showAlertDialog(getString(R.string.app_name), responseResult.getError().getMessage());
+                            if (responseResult != null && responseResult.getError() != null && responseResult.getError().getCode() == WebserviceConfig.HTTP_CODE.SUCCESS) {
+                                 doFetchKidDetail(kidId, responseResult.getError().getMessage());
                             } else if (responseResult.getError() != null) {
+                                dismissProgressBar();
                                 showErrorDialog(responseResult.getError());
                             }
                         } else {
+                            dismissProgressBar();
                             String strError = readIn(response.errorBody().byteStream());
                             Error error = new Gson().fromJson(strError, Error.class);
                             showErrorDialog(error);
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
+                        dismissProgressBar();
                     }
                 }
 
@@ -323,6 +326,54 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
         } else {
             showToast(getString(R.string.error_network));
         }
+    }
+
+    void doFetchKidDetail(String kidId, final String message) {
+        HeaderSession header = new HeaderSession();
+        APIService apiService = RetrofitConfig.getInstance(this).getRetrofit().create(APIService.class);
+        Call<KidResponse> callUser = apiService.fetchKid(
+                header.getContentType(),
+                header.getLanguageCode(),
+                Long.parseLong(kidId));
+        callUser.enqueue(new Callback<KidResponse>() {
+            @Override
+            public void onResponse(Call<KidResponse> call, Response<KidResponse> response) {
+                if (WebserviceConfig.HTTP_CODE.OK == response.code()) {
+                    KidResponse accountResponse = response.body();
+                    if (accountResponse != null) {
+                        Kid kid = accountResponse.getKid();
+                        if (kid != null) {
+                            ALog.i(TAG, kid.toString());
+                            try {
+                                long result = KidRepository.getInstance(ResultSurveyActivity.this).saveKid(kid);
+                                ALog.i(TAG, ">>> Save or update kid >>> " + result);
+                                showAlertDialog(getString(R.string.app_name), message);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+
+                            dismissProgressBar();
+                        } else {
+                            dismissProgressBar();
+                            showErrorDialog(accountResponse.getError());
+                        }
+                    } else {
+                        dismissProgressBar();
+                    }
+                } else {
+                    dismissProgressBar();
+                    String strError = readIn(response.errorBody().byteStream());
+                    Error error = new Gson().fromJson(strError, Error.class);
+                    showErrorDialog(error);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<KidResponse> call, Throwable t) {
+                dismissProgressBar();
+                t.printStackTrace();
+            }
+        });
     }
 
     void doFetchHistory(String historyId) {

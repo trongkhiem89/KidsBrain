@@ -37,6 +37,7 @@ public interface APIService {
     String CATEGORIES = ENDPOINT + "api";
     String QUESTIONS = ENDPOINT + "api/categoryDetail";
 
+    String KIDS = ENDPOINT + "user";
     String ADD_KID = ENDPOINT + "user";
     String KID_PROFILE = ENDPOINT + "children";
     String UPDATE_KID = ENDPOINT + "children";
@@ -75,16 +76,18 @@ public interface APIService {
                                         @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
                                         @Path("user_id") long userId,
                                         @Body EditProfileParams account);
+
     @POST(APIService.FORGOT_PASSWORD)
     Call<AccountResponse> forgotPassword(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
-                                      @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
-                                      @Body RequestBody email);
+                                         @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
+                                         @Body RequestBody email);
 
     @PUT(APIService.UPDATE_PASSWORD + "/{user_id}/updatePassword")
     Call<AccountResponse> updatePassword(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
-                                      @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
+                                         @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
                                          @Path("user_id") long userId,
-                                      @Body PasswordParams params);
+                                         @Body PasswordParams params);
+
     /*****************************************
      * Todo: KID
      *****************************************
@@ -97,6 +100,11 @@ public interface APIService {
     Call<KidResponse> fetchKid(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
                                @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
                                @Path("kid_id") long kidId);
+
+    @GET(APIService.KIDS + "/{user_id}")
+    Call<AccountResponse> fetchKids(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
+                               @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
+                               @Path("user_id") long userId);
 
     @POST(APIService.ADD_KID + "/{parent_id}/addChildren")
     Call<KidResponse> addKid(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
@@ -152,14 +160,14 @@ public interface APIService {
      *****************************************/
     @GET(APIService.SEARCH_HISTORY_CODE + "/{history_id}")
     Call<TestResponse> searchHistoryCode(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
-                               @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
-                               @Path("history_id") String historyCode);
+                                         @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
+                                         @Path("history_id") String historyCode);
 
     @GET(APIService.SAVE_SEARCH_KID_HISTORY + "/{user_id}/{kid_id}/saveAs")
     Call<KidResponse> saveSearchHistory(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
-                                         @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
-                                         @Path("user_id") long userId,
-                                         @Path("kid_id") long kidId);
+                                        @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
+                                        @Path("user_id") long userId,
+                                        @Path("kid_id") long kidId);
 
     /*****************************************
      * Todo: BOOKING

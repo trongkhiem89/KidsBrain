@@ -22,6 +22,9 @@ public class Category implements Serializable {
     @SerializedName("categoryName")
     private String name;
 
+    @SerializedName("linkImgCategory")
+    private String avatar;
+
     @SerializedName("description")
     private String description;
 
@@ -85,6 +88,14 @@ public class Category implements Serializable {
         return name;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -113,6 +124,7 @@ public class Category implements Serializable {
     public String toString() {
         return "Id:" + getId() +"\n"
                 + "Name:" + getName() + "\n"
+                + "Avatar:" + getAvatar() + "\n"
                 + "Icon:" + getIcon() + "\n"
                 + "Description:" + getDescription() + "\n"
                 + "Status:" + getStatus();

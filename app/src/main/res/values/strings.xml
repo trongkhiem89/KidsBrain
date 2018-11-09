@@ -133,6 +133,7 @@
     <string name="str_input_history_code">Nhập mã số bài kiểm tra</string>
     <string name="str_hint_code">Mã số</string>
     <string name="str_choose_option_test">Chọn hình thức kiểm tra</string>
+    <string name="str_choose_a_option">Bạn cần chọn một đáp án!</string>
     <string name="str_test_option_coming_soon">Ứng dụng chưa hỗ trợ tính năng này!</string>
     <string name="str_testing_exit_confirm">Bạn chưa hoành thành bài kiểm tra, Kết quả sẽ không được lưu ?</string>
     <string name="str_testing_completed">Bạn đã hoành thành bài kiểm tra, nhấp đống ý để xem kết quả!</string>

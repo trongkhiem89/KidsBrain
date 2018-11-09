@@ -11,6 +11,7 @@ import com.ethanhua.skeleton.RecyclerViewSkeletonScreen;
 import com.ethanhua.skeleton.Skeleton;
 import com.google.gson.Gson;
 import com.kid.brain.R;
+import com.kid.brain.activies.authorization.LoginActivity;
 import com.kid.brain.managers.application.BaseFragment;
 import com.kid.brain.managers.help.KidBusiness;
 import com.kid.brain.managers.help.KidPreference;
@@ -22,6 +23,7 @@ import com.kid.brain.provider.request.APIService;
 import com.kid.brain.provider.request.HeaderSession;
 import com.kid.brain.provider.request.RetrofitConfig;
 import com.kid.brain.provider.request.WebserviceConfig;
+import com.kid.brain.provider.request.model.AccountResponse;
 import com.kid.brain.provider.request.model.Error;
 import com.kid.brain.provider.request.model.KidResponse;
 import com.kid.brain.util.Constants;
@@ -53,6 +55,7 @@ public class KidsFragment extends BaseFragment {
     RecyclerView rvKids;
 
     private Kid mKid;
+    private String mParentId;
     private List<Kid> mKids;
     private KidAdapter adapter;
 
@@ -80,17 +83,22 @@ public class KidsFragment extends BaseFragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        mParentId = KidPreference.getStringValue(KidPreference.KEY_USER_ID);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        try {
-            String parentId = KidPreference.getStringValue(KidPreference.KEY_USER_ID);
-            mKids = KidRepository.getInstance(getActivity()).getKids(parentId);
-            displayItems();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (NetworkUtil.isConnected(getActivity())) {
+            doFetchKids(mParentId);
+        } else {
+            try {
+                mKids = KidRepository.getInstance(getActivity()).getKids(mParentId);
+                displayItems();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -100,7 +108,7 @@ public class KidsFragment extends BaseFragment {
         Call<KidResponse> callUser = apiService.deleteKid(
                 header.getContentType(),
                 header.getLanguageCode(),
-                Long.parseLong(kid.getParentId()),
+                Long.parseLong(mParentId),
                 Long.parseLong(kid.getChildrenId()));
         callUser.enqueue(new Callback<KidResponse>() {
             @Override
@@ -140,6 +148,54 @@ public class KidsFragment extends BaseFragment {
 
             @Override
             public void onFailure(Call<KidResponse> call, Throwable t) {
+                dismissProgressBar();
+                t.printStackTrace();
+            }
+        });
+    }
+
+    private void doFetchKids(String userId) {
+        HeaderSession header = new HeaderSession();
+        APIService apiService = RetrofitConfig.getInstance(getActivity()).getRetrofit().create(APIService.class);
+        Call<AccountResponse> callKids = apiService.fetchKids(
+                header.getContentType(),
+                header.getLanguageCode(),
+                Long.parseLong(userId));
+        callKids.enqueue(new Callback<AccountResponse>() {
+            @Override
+            public void onResponse(Call<AccountResponse> call, Response<AccountResponse> response) {
+                try {
+                    if (WebserviceConfig.HTTP_CODE.OK == response.code()) {
+                        AccountResponse accountResponse = response.body();
+                        if (accountResponse != null) {
+                            Account mAccount = accountResponse.getAccount();
+                            if (mAccount != null) {
+                                ALog.i(TAG, mAccount.toString());
+                                try {
+                                    mKids = mAccount.getKids();
+                                    displayItems();
+                                    KidRepository.getInstance(getActivity()).saveKids(mAccount.getKids());
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                showErrorDialog(accountResponse.getError());
+                            }
+                        }
+                    } else {
+                        String strError = readIn(response.errorBody().byteStream());
+                        Error error = new Gson().fromJson(strError, Error.class);
+                        showErrorDialog(error);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    dismissProgressBar();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AccountResponse> call, Throwable t) {
                 dismissProgressBar();
                 t.printStackTrace();
             }
@@ -195,16 +251,16 @@ public class KidsFragment extends BaseFragment {
     private IOnItemClickListener onItemClickListener = new IOnItemClickListener() {
         @Override
         public <T> void onItemClickListener(T object) {
-            Kid mKid = (Kid) object;
-            if (mKid == null) return;
-            if (Account.DEFAULT_ID.equalsIgnoreCase(mKid.getChildrenId())) {
+            Kid kid = (Kid) object;
+            if (kid == null) return;
+            if (Account.DEFAULT_ID.equalsIgnoreCase(kid.getChildrenId())) {
                 // Click default add kid
                 Intent intentEditProfile = new Intent(getActivity(), KidCreateUpdateActivity_.class);
                 startActivity(intentEditProfile);
             } else {
                 if (NetworkUtil.isConnected(getActivity())) {
                     Intent intentEditProfile = new Intent(getActivity(), KidDetailActivity_.class);
-                    intentEditProfile.putExtra(Constants.KEY_KID_ID, mKid.getChildrenId());
+                    intentEditProfile.putExtra(Constants.KEY_KID, kid);
                     startActivity(intentEditProfile);
                 } else {
                     showAlertDialog(getString(R.string.app_name), getString(R.string.error_network));

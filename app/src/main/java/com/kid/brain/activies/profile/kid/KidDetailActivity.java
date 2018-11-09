@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.kid.brain.R;
 import com.kid.brain.managers.application.BaseAppCompatActivity;
+import com.kid.brain.models.Kid;
 import com.kid.brain.util.Constants;
 
 import org.androidannotations.annotations.AfterInject;
@@ -25,8 +26,8 @@ public class KidDetailActivity extends BaseAppCompatActivity {
     @ViewById
     Toolbar toolbar;
 
-    @Extra(Constants.KEY_KID_ID)
-    String mKidId;
+    @Extra(Constants.KEY_KID)
+    Kid mKid;
 
     @AfterInject
     void afterInject() {
@@ -36,7 +37,7 @@ public class KidDetailActivity extends BaseAppCompatActivity {
     @AfterViews
     void afterViews() {
         setUpToolbarWithBackButton(toolbar, R.string.app_name);
-        showFragment(KidDetailFragment_.newInstance(mKidId));
+        showFragment(KidDetailFragment_.newInstance(mKid));
     }
 
     @OptionsItem(android.R.id.home)

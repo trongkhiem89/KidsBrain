@@ -10,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kid.brain.R;
+import com.kid.brain.managers.application.KidApplication;
 import com.kid.brain.managers.listeners.IOnItemClickListener;
 import com.kid.brain.models.Category;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
 
@@ -81,7 +83,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             }
         });
 
-        setCategoryIcon(holder.cateIcon, category.getId());
+//        setCategoryIcon(holder.cateIcon, category.getId());
+        ImageLoader.getInstance().displayImage(category.getAvatar(), holder.cateIcon, KidApplication.getInstance().getOptions());
         holder.cardView.setBackgroundResource(R.drawable.selector_card_view_bound);
 
 

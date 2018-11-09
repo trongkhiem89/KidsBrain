@@ -134,8 +134,11 @@ public class CheckListActivity extends BaseAppCompatActivity implements IActivit
 
         if (mIterator.hasNext()) {
             if (TextUtils.isEmpty(mQuestionIds) && mCategory.getId() != 8) {
-                showAlertDialog(getString(R.string.app_name), "Bạn cần chọn một đáp án!");
+                showAlertDialog(getString(R.string.app_name), getString(R.string.str_choose_a_option));
+                mCount--;
                 return;
+            } else if (TextUtils.isEmpty(mQuestionIds) && mCategory.getId() == 8) {
+                mRateId = "14";
             }
 
             saveScoreToBean();
@@ -143,8 +146,11 @@ public class CheckListActivity extends BaseAppCompatActivity implements IActivit
             onTransactionFragment(CheckListFragment_.newInstance(mKid, mCategory));
         } else {
             if (TextUtils.isEmpty(mQuestionIds) && mCategory.getId() != 8) {
-                showAlertDialog(getString(R.string.app_name), "Bạn cần chọn một đáp án!");
+                showAlertDialog(getString(R.string.app_name), getString(R.string.str_choose_a_option));
+                mCount--;
                 return;
+            } else if (TextUtils.isEmpty(mQuestionIds) && mCategory.getId() == 8) {
+                mRateId = "14";
             }
 
             DialogUtil.createCustomOkDialog(CheckListActivity.this,

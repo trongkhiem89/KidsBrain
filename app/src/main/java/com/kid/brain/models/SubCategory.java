@@ -26,6 +26,9 @@ public class SubCategory implements Serializable {
     @SerializedName("categoryName")
     private String cateName;
 
+    @SerializedName("linkImgCategory")
+    private String cateImage;
+
 //    @SerializedName("ageVO")
 //    private Level level;
 //
@@ -76,5 +79,13 @@ public class SubCategory implements Serializable {
 
     public void setRates(List<Rate> rates) {
         this.rates = rates;
+    }
+
+    public String getCateImage() {
+        return cateImage;
+    }
+
+    public void setCateImage(String cateImage) {
+        this.cateImage = cateImage;
     }
 }

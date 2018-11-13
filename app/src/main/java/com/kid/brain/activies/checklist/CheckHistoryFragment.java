@@ -27,6 +27,7 @@ import com.kid.brain.provider.request.model.QuestionResponse;
 import com.kid.brain.util.Constants;
 import com.kid.brain.util.log.ALog;
 import com.kid.brain.view.adapters.QuestionAdapter;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -138,7 +139,8 @@ public class CheckHistoryFragment extends BaseFragment {
                                 if (mQuestions != null) {
                                     displayCategory(Integer.parseInt(mCategoryId),
                                             subCategory.getCateName(),
-                                            subCategory.getLevelName());
+                                            subCategory.getLevelName(),
+                                            subCategory.getCateImage());
                                     displayQuestions();
                                 } else if (accountResponse.getError().getCode() == WebserviceConfig.HTTP_CODE.FAILED) {
                                     showErrorDialog(accountResponse.getError());
@@ -166,8 +168,9 @@ public class CheckHistoryFragment extends BaseFragment {
         });
     }
 
-    private void displayCategory(int cateId, String cateName, String levelName) {
-        setCategoryIcon(imgKidLevel, cateId);
+    private void displayCategory(int cateId, String cateName, String levelName, String cateImage) {
+//        setCategoryIcon(imgKidLevel, cateId);
+        ImageLoader.getInstance().displayImage(cateImage, imgKidLevel, KidApplication.getInstance().getOptions());
         tvCategory.setText(cateName);
 
         if (KidApplication.mKidTested != null )

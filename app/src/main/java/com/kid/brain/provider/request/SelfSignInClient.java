@@ -31,12 +31,8 @@ public class SelfSignInClient {
         okHttpClient.hostnameVerifier(new HostnameVerifier() {
             @Override
             public boolean verify(String hostname, SSLSession session) {
-                return ( hostname.equals("account.hightrusted.com")
-                        || hostname.equals("certifyid.hightrusted.com")
-                        || hostname.equals("wisigndoc.hightrusted.com")
-                        || hostname.equals("wisigndoc.wisekey.com")
-                        || hostname.equals("cidapi.wisekey.com")
-                        || hostname.equals("signature.hightrusted.com") ) ;
+                return ( hostname.equals("babywash.vn")
+                        || hostname.equals("103.101.161.178") ) ;
             }
         });
 

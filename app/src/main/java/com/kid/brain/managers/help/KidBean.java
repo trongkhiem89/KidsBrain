@@ -193,10 +193,37 @@ public class KidBean {
     }
 
     public void addScore(QuestionScore questionScore) {
-        if (this.mQuestionScores == null) {
-            this.mQuestionScores = new ArrayList<>();
+        if (isExistQuestionScore(questionScore)) {
+            resetScoreRateQuestionIds(questionScore);
+        } else {
+            if (this.mQuestionScores == null) {
+                this.mQuestionScores = new ArrayList<>();
+            }
+            this.mQuestionScores.add(questionScore);
         }
-        this.mQuestionScores.add(questionScore);
+    }
+
+    private boolean isExistQuestionScore(QuestionScore questionScore) {
+        if (this.mQuestionScores == null || this.mQuestionScores.size() == 0) return false;
+        for (QuestionScore qc : this.mQuestionScores) {
+            if (qc.getLevel().getAgeId().equals(questionScore.getLevel().getAgeId())
+                    && qc.getCategory().getId() == questionScore.getCategory().getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void resetScoreRateQuestionIds(QuestionScore questionScore) {
+        for (QuestionScore qc : this.mQuestionScores) {
+            if (qc.getLevel().getAgeId().equals(questionScore.getLevel().getAgeId())
+                    && qc.getCategory().getId() == questionScore.getCategory().getId()) {
+                qc.setRateId(questionScore.getRateId());
+                qc.setScore(questionScore.getScore());
+                qc.setQuestionIds(questionScore.getQuestionIds());
+                break;
+            }
+        }
     }
 
     public List<QuestionScore> getQuestionScores() {

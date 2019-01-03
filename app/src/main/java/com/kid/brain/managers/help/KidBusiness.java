@@ -61,7 +61,7 @@ public class KidBusiness {
                             return rate;
                         }
                     }
-                }  else if (Integer.parseInt(rate.getScore()) == inputScore) {
+                } else if (Integer.parseInt(rate.getScore()) == inputScore) {
                     return rate;
                 }
             }
@@ -69,5 +69,4 @@ public class KidBusiness {
 
         return outRate;
     }
-
 }

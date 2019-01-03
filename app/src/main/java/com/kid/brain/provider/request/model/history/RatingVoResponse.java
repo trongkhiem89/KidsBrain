@@ -16,8 +16,16 @@ public class RatingVoResponse implements Serializable {
     @SerializedName("score")
     private String score;
 
+    @SerializedName("totalScore")
+    private String totalScore;
+
     @SerializedName("recommendations")
     private String name;
+
+    public RatingVoResponse() {
+        this.score = "0";
+        this.totalScore = "0";
+    }
 
     public String getRateId() {
         return rateId;
@@ -31,11 +39,16 @@ public class RatingVoResponse implements Serializable {
         return name;
     }
 
+    public String getTotalScore() {
+        return totalScore;
+    }
+
     @Override
     public String toString() {
         return "RatingVoResponse{" +
                 "rateId='" + rateId + '\'' +
                 ", score='" + score + '\'' +
+                ", totalScore='" + totalScore + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }

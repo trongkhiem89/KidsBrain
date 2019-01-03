@@ -17,10 +17,10 @@ import java.util.List;
 public class EmailUtil {
 
 	public static void sendFeedback(BaseAppCompatActivity parent, String mailBody) {
-		String[] recipients = new String[] { "support@wisekey.ch" };
+		String[] recipients = new String[] { "sucmanhbentrong@gmail.com" };
 		EmailUtil.sendEmail(parent,
 							recipients,
-							"WISeID feedback",
+							"KidsBrains feedback",
 							mailBody);
 	}
 

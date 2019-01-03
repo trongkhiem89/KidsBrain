@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvEmail"
+        style="@style/StyleSettingItem"
+        android:drawableLeft="@drawable/icon_email"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:text="@string/str_email" />
+
+    <TextView
+        android:id="@+id/tvFacebook"
+        style="@style/StyleSettingItem"
+        android:drawableLeft="@drawable/ic_facebook"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:text="@string/str_facebook" />
+
+    <TextView
+        android:id="@+id/tvOther"
+        style="@style/StyleSettingItem"
+        android:drawableLeft="@drawable/ic_menu_share"
+        android:drawablePadding="@dimen/activity_horizontal_margin"
+        android:text="@string/str_other" />
+
+
+</LinearLayout>

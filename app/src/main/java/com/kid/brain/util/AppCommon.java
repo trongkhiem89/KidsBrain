@@ -158,6 +158,19 @@ public class AppCommon {
             }
         }
 
+        // < 36 thang
+        if (months > 0) {
+            if (years < 3) {
+                months += years * 12;
+                years = 0;
+            }
+        } else {
+            if (years <= 3) {
+                months += years * 12;
+                years = 0;
+            }
+        }
+
         //Create new Age object
         return new Age(days, months, years);
     }

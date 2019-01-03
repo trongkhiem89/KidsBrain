@@ -4,18 +4,27 @@ package com.kid.brain.activies.settings;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.share.Sharer;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 import com.google.gson.Gson;
 import com.kid.brain.R;
 import com.kid.brain.activies.tutorial.AppInfoActivity_;
 import com.kid.brain.activies.tutorial.TutorialActivity_;
 import com.kid.brain.managers.application.BaseFragment;
+import com.kid.brain.managers.application.KidApplication;
 import com.kid.brain.managers.help.KidPreference;
 import com.kid.brain.managers.listeners.IActivityCommunicatorListener;
 import com.kid.brain.managers.listeners.IDialogOkListener;
+import com.kid.brain.managers.listeners.IShare;
 import com.kid.brain.provider.database.DatabaseManager;
 import com.kid.brain.provider.request.APIService;
 import com.kid.brain.provider.request.HeaderSession;
@@ -27,7 +36,9 @@ import com.kid.brain.provider.request.model.PasswordParams;
 import com.kid.brain.util.Constants;
 import com.kid.brain.util.LocaleManager;
 import com.kid.brain.util.NetworkUtil;
+import com.kid.brain.util.log.ALog;
 import com.kid.brain.view.dialog.ChangePasswordDialog;
+import com.kid.brain.view.dialog.ShareSocialDialog;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -40,6 +51,8 @@ import retrofit2.Response;
 
 @EFragment(R.layout.fragment_settings)
 public class SettingsFragment extends BaseFragment {
+
+    private static final String TAG = SettingsFragment.class.getName();
 
     @ViewById
     TextView tvTutorial;
@@ -60,10 +73,13 @@ public class SettingsFragment extends BaseFragment {
     TextView tvExportDatabase;
 
     private IActivityCommunicatorListener mCommunicatorListener;
+    private CallbackManager mFbCallbackManager;
+    private ShareDialog mFbShareDialog;
 
     @AfterViews
     void afterViews() {
-
+        mFbCallbackManager = CallbackManager.Factory.create();
+        mFbShareDialog = new ShareDialog(this);
     }
 
     @Override
@@ -74,17 +90,92 @@ public class SettingsFragment extends BaseFragment {
 
     @Click(R.id.relTutorial)
     void doTutorial() {
-//        KidPreference.saveValue(KidPreference.KEY_SHOW_TUTORIAL, false);
+        //KidPreference.saveValue(KidPreference.KEY_SHOW_TUTORIAL, false);
         startActivity(new Intent(getActivity(), TutorialActivity_.class));
     }
 
     @Click(R.id.relShare)
     void doShare() {
-        Intent i=new Intent(android.content.Intent.ACTION_SEND);
+        ShareSocialDialog dialog = new ShareSocialDialog(getActivity(), new IShare() {
+
+            @Override
+            public void shareEmail() {
+                try {
+                    onShareEmail();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void shareFacebook() {
+                try {
+                    onShareFacebook();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void shareOther() {
+                try {
+                    onShareOther();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        dialog.show();
+    }
+
+    private void onShareFacebook() throws Exception {
+        mFbShareDialog.registerCallback(mFbCallbackManager, new FacebookCallback<Sharer.Result>() {
+            @Override
+            public void onSuccess(Sharer.Result result) {
+                ALog.d(TAG, "Success");
+            }
+
+            @Override
+            public void onCancel() {
+                ALog.d(TAG, "Cancel");
+
+            }
+
+            @Override
+            public void onError(FacebookException e) {
+                ALog.d(TAG, "Error");
+            }
+        });
+
+        if (ShareDialog.canShow(ShareLinkContent.class)) {
+            String appPackageName = getActivity() != null ? getActivity().getPackageName() : KidApplication.getInstance().getPackageName();
+            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                    .setContentUrl(Uri.parse(getString(R.string.str_app_share_link, appPackageName)))
+                    .setQuote(getString(R.string.str_app_info_text))
+                    .build();
+            mFbShareDialog.show(linkContent);
+        }
+    }
+
+    private void onShareEmail() throws Exception {
+        onShareOther();
+    }
+
+    private void onShareOther() throws Exception {
+        String appPackageName = getActivity() != null ? getActivity().getPackageName() : KidApplication.getInstance().getPackageName();
+        String text = getString(R.string.str_app_info_text);
+        String link = getString(R.string.str_app_share_link, appPackageName);
+        Intent i = new Intent(android.content.Intent.ACTION_SEND);
         i.setType("text/plain");
-        i.putExtra(android.content.Intent.EXTRA_SUBJECT,getString(R.string.app_name));
-        i.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.str_app_info_text));
-        startActivity(Intent.createChooser(i,getString(R.string.str_share)));
+        i.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        i.putExtra(android.content.Intent.EXTRA_TEXT, text + "\n" + Uri.parse(link));
+        startActivity(Intent.createChooser(i, getString(R.string.str_share)));
+    }
+
+    @Override
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mFbCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     @Click(R.id.relChangeLanguage)
@@ -105,7 +196,6 @@ public class SettingsFragment extends BaseFragment {
 
     @Click(R.id.relChangePassword)
     void doChangePassword() {
-
         ChangePasswordDialog changePasswordDialog = new ChangePasswordDialog(getActivity(), new IDialogOkListener() {
             @Override
             public <T> void onOk(T object) {

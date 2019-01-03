@@ -8,7 +8,7 @@
     <dimen name="fab_margin">8dp</dimen>
     <dimen name="list_left_margin">34dp</dimen>
     <dimen name="btn_radius">2.5dip</dimen>
-    <dimen name="radius">5dip</dimen>
+    <dimen name="radius">16dip</dimen>
 
     <dimen name="introduce_size">200dp</dimen>
     <dimen name="logo_icon_size">100dp</dimen>

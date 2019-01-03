@@ -48,8 +48,8 @@
 
     <string-array name="testOptions">
         <item name="1">Trẻ bình thường</item>
-        <item name="2">Trẻ Tự Kỷ</item>
-        <item name="3">Trẻ bại não</item>
+        <!--<item name="2">Trẻ Tự Kỷ</item>-->
+        <!--<item name="3">Trẻ bại não</item>-->
     </string-array>
 
     <string name="dialog_title">Kids Brain</string>
@@ -98,6 +98,8 @@
     <string name="str_password">Mật khẩu</string>
     <string name="str_retype_password">Nhập lại mật khẩu</string>
     <string name="str_email">Email</string>
+    <string name="str_facebook">Facebook</string>
+    <string name="str_other">Khác</string>
     <string name="str_fullName">Họ và tên</string>
     <string name="str_phone_number">Số điện thoại</string>
     <string name="str_date_of_birth">Ngày sinh</string>
@@ -126,10 +128,12 @@
     <string name="str_send_result">Gửi kết quả</string>
     <string name="str_send_result_success">Đã gửi kết quả!</string>
     <string name="str_note">Nội dung</string>
-    <string name="str_kid_delete_confirm_message">Bạn muốn xoá thông trẻ ?</string>
+    <string name="str_kid_delete_confirm_message">Bạn muốn xoá thông tin trẻ ?</string>
+    <string name="str_history_delete_confirm_message">Bạn muốn xoá ?</string>
     <string name="str_old">%s tuổi</string>
     <string name="str_month">%s tháng</string>
-    <string name="str_score">Điểm: %s</string>
+    <string name="str_score">Điểm: %s/%s</string>
+    <string name="str_score_only">Điểm: %s</string>
     <string name="str_input_history_code">Nhập mã số bài kiểm tra</string>
     <string name="str_hint_code">Mã số</string>
     <string name="str_choose_option_test">Chọn hình thức kiểm tra</string>
@@ -161,5 +165,19 @@
 \n\nDịch, tổng hợp cho điểm, và đưa ra kết quả khuyến nghị: Ms Nguyễn Thanh Ngà
 \nTư vấn sau khi đánh giá Ms Nguyễn Thanh Ngà và cộng sự.
 </string>
+    <string name="str_app_share_link">https://play.google.com/store/apps/details?id=%s</string>
+
+    <string name="permission_record_audio">RECORD AUDIO</string>
+    <string name="permission_access_coarse_location">ACCESS_COARSE_LOCATION</string>
+    <string name="permission_access_fine_location">ACCESS_FINE_LOCATION</string>
+    <string name="permission_read_contacts">READ_CONTACTS</string>
+    <string name="permission_write_contacts">WRITE_CONTACTS</string>
+    <string name="permission_write_ex_storage">WRITE_EXTERNAL_STORAGE</string>
+    <string name="permission_read_ex_storage">READ_EXTERNAL_STORAGE</string>
+    <string name="permission_camera">CAMERA</string>
+    <string name="permission_get_account">GET_ACCOUNTS</string>
+    <string name="permission_guide">You need to allow Token app to access the following dangerous permissions to use this app:</string>
+    <string name="permission_denied_and_guide_to_setting">Permission denied! Please enable all permissions from permissions Token app setting</string>
+    <string name="error_camera_permission">Camera is not enabled. Do you want to go to setting menu</string>
 
 </resources>

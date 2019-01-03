@@ -20,8 +20,8 @@
     <color name="card">@color/colorWhite</color>
     <color name="cardSelected">#F5F5F5</color>
 
-    <color name="colorGreen">#00CC7B</color>
-    <color name="colorGreenSelected">#4CAF50</color>
+    <color name="colorGreen">#4caf50</color>
+    <color name="colorGreenSelected">#6fbf73</color>
 
     <color name="colorRed">#f53d3d</color>
     <color name="colorRedSelected">#D32F2F</color>

@@ -66,6 +66,10 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".activies.checklist.viewpager.ViewPagerCheckListActivity_"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".activies.checklist.CheckHistoryActivity_"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -123,6 +127,10 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
+
+        <provider android:authorities="com.facebook.app.FacebookContentProvider238954300276557"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
 
     </application>
 

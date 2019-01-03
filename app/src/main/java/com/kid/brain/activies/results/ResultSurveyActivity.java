@@ -148,7 +148,10 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                             recommend.setText(rate.getName());
 
                             TextView score = view.findViewById(R.id.score);
-                            score.setText(getString(R.string.str_score, String.valueOf(qc.getScore())));
+                            score.setText(getString(R.string.str_score,
+                                    String.valueOf(qc.getScore()),
+                                    String.valueOf(qc.getTotalScore()))
+                            );
                         }
 
                         llRoot.addView(view);
@@ -300,7 +303,7 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                         if (WebserviceConfig.HTTP_CODE.OK == response.code()) {
                             KidResponse responseResult = response.body();
                             if (responseResult != null && responseResult.getError() != null && responseResult.getError().getCode() == WebserviceConfig.HTTP_CODE.SUCCESS) {
-                                 doFetchKidDetail(kidId, responseResult.getError().getMessage());
+                                doFetchKidDetail(kidId, responseResult.getError().getMessage());
                             } else if (responseResult.getError() != null) {
                                 dismissProgressBar();
                                 showErrorDialog(responseResult.getError());
@@ -411,7 +414,7 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                                             recommend.setText(rate.getName());
 
                                             TextView score = view.findViewById(R.id.score);
-                                            score.setText(getString(R.string.str_score, rate.getScore()));
+                                            score.setText(getString(R.string.str_score, rate.getScore(), rate.getTotalScore()));
                                         }
 
                                         view.setOnClickListener(new View.OnClickListener() {

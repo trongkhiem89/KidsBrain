@@ -16,6 +16,7 @@ import com.kid.brain.models.Category;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
+import java.util.Random;
 
 
 /**
@@ -28,6 +29,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     private LayoutInflater inflater;
     private IOnItemClickListener iOnItemClickListener;
     private Context context;
+
+    private int resIds[] = new int[]{R.drawable.gradient_1, R.drawable.gradient_2, R.drawable.gradient_3, R.drawable.gradient_4, R.drawable.gradient_5, R.drawable.gradient_1, R.drawable.gradient_2, R.drawable.gradient_3, R.drawable.gradient_4, R.drawable.gradient_5};
 
     public CategoryAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
@@ -85,8 +88,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
 //        setCategoryIcon(holder.cateIcon, category.getId());
         ImageLoader.getInstance().displayImage(category.getAvatar(), holder.cateIcon, KidApplication.getInstance().getOptions());
-        holder.cardView.setBackgroundResource(R.drawable.selector_card_view_bound);
 
+        holder.cardView.setBackgroundResource(R.drawable.selector_card_view_bound);
+//        holder.cardView.setBackgroundResource(resIds[position]);
 
     }
 

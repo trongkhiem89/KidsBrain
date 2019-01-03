@@ -12,12 +12,14 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ethanhua.skeleton.RecyclerViewSkeletonScreen;
 import com.ethanhua.skeleton.Skeleton;
 import com.google.gson.Gson;
 import com.kid.brain.R;
 import com.kid.brain.activies.home.CategoriesActivity_;
+import com.kid.brain.activies.results.BookingActivity;
 import com.kid.brain.activies.results.ResultSurveyActivity_;
 import com.kid.brain.managers.application.BaseFragment;
 import com.kid.brain.managers.application.KidApplication;
@@ -32,13 +34,18 @@ import com.kid.brain.provider.request.APIService;
 import com.kid.brain.provider.request.HeaderSession;
 import com.kid.brain.provider.request.RetrofitConfig;
 import com.kid.brain.provider.request.WebserviceConfig;
+import com.kid.brain.provider.request.model.BookingParams;
 import com.kid.brain.provider.request.model.Error;
 import com.kid.brain.provider.request.model.KidResponse;
+import com.kid.brain.provider.request.model.history.SearchHistoryParams;
+import com.kid.brain.provider.request.model.history.TestResponse;
 import com.kid.brain.util.Constants;
+import com.kid.brain.util.NetworkUtil;
 import com.kid.brain.util.log.ALog;
 import com.kid.brain.view.adapters.HistoryAdapter;
 import com.kid.brain.view.custom.MyItemDecoration;
 import com.kid.brain.view.dialog.DateTimeUtils;
+import com.kid.brain.view.dialog.DialogUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.androidannotations.annotations.AfterInject;
@@ -219,8 +226,9 @@ public class KidDetailFragment extends BaseFragment {
 
     @Click(R.id.btnStartTest)
     void onStartTest() {
-        chooseTestOptions();
-
+//        chooseTestOptions();
+        int type = EKidCate.Normal.getName();
+        goToTest(type);
     }
 
     @Click(R.id.imbEditProfile)
@@ -282,6 +290,15 @@ public class KidDetailFragment extends BaseFragment {
         imbEditProfile.setVisibility(isOnlyView ? View.GONE : View.VISIBLE);
     }
 
+    private void goToTest(int type) {
+        ALog.i("", ">>> Starting to test");
+        KidApplication.mKidTested = mKid;
+        Intent intentStartTesting = new Intent(getActivity(), CategoriesActivity_.class);
+        intentStartTesting.putExtra(Constants.KEY_KID, mKid);
+        intentStartTesting.putExtra(Constants.KEY_KID_CATE, type);
+        startActivity(intentStartTesting);
+    }
+
     //TODO: Click on Item listener
     private IOnItemClickListener onItemClickListener = new IOnItemClickListener() {
         @Override
@@ -294,10 +311,75 @@ public class KidDetailFragment extends BaseFragment {
         }
 
         @Override
-        public <T> void onItemLongClickListener(T object) {
+        public <T> void onItemLongClickListener(final T object) {
+            if (object instanceof History) {
+                DialogUtil.createCustomConfirmDialog(getActivity(),
+                        getString(R.string.app_name),
+                        getString(R.string.str_history_delete_confirm_message),
+                        getString(R.string.btn_delete),
+                        getString(R.string.btn_cancel),
+                        new DialogUtil.ConfirmDialogOnClickListener() {
+                            @Override
+                            public void onOKButtonOnClick() {
+                                doDeleteHistory((History) object);
+                            }
+
+                            @Override
+                            public void onCancelButtonOnClick() {
+
+                            }
+                        }).show();
+            }
 
         }
     };
+
+    void doDeleteHistory(final History history) {
+        if (NetworkUtil.isConnected(getActivity())) {
+            showProgressBar(getActivity(), getString(R.string.dialog_message_sending));
+            HeaderSession header = new HeaderSession();
+
+            APIService apiService = RetrofitConfig.getInstance(getActivity()).getRetrofit().create(APIService.class);
+            Call<TestResponse> callUser = apiService.deleteHistory(
+                    header.getContentType(),
+                    header.getLanguageCode(),
+                    history.getId());
+            callUser.enqueue(new Callback<TestResponse>() {
+                @Override
+                public void onResponse(Call<TestResponse> call, Response<TestResponse> response) {
+                    try {
+                        if (WebserviceConfig.HTTP_CODE.OK == response.code()) {
+                            TestResponse accountResponse = response.body();
+                            if (accountResponse.getError().getCode() == WebserviceConfig.HTTP_CODE.SUCCESS) {
+                                dismissProgressBar();
+                                Toast.makeText(getActivity(), accountResponse.getError().getMessage() , Toast.LENGTH_SHORT).show();
+                                mHistories.remove(history);
+                                adapter.notifyDataSetChanged();
+                            } else {
+                                dismissProgressBar();
+                                showAlertDialog(getString(R.string.app_name), accountResponse.getError().getMessage());
+                            }
+                        } else {
+                            dismissProgressBar();
+                            String strError = readIn(response.errorBody().byteStream());
+                            Error error = new Gson().fromJson(strError, Error.class);
+                            showErrorDialog(error);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<TestResponse> call, Throwable t) {
+                    dismissProgressBar();
+                    t.printStackTrace();
+                }
+            });
+        } else {
+            Toast.makeText(getActivity(), getString(R.string.error_network), Toast.LENGTH_SHORT).show();
+        }
+    }
 
     private void chooseTestOptions() throws NullPointerException {
         final int checkedItem = -1;
@@ -314,12 +396,7 @@ public class KidDetailFragment extends BaseFragment {
                         }
 
 //                        if (which == 0) {
-                            ALog.i("", ">>> Starting to test");
-                            KidApplication.mKidTested = mKid;
-                            Intent intentStartTesting = new Intent(getActivity(), CategoriesActivity_.class);
-                            intentStartTesting.putExtra(Constants.KEY_KID, mKid);
-                            intentStartTesting.putExtra(Constants.KEY_KID_CATE, type);
-                            startActivity(intentStartTesting);
+                        goToTest(type);
 //                        } else if (which == 1){
 //                            Toast.makeText(getActivity(), getString(R.string.str_test_option_coming_soon), Toast.LENGTH_SHORT).show();
 //                        }

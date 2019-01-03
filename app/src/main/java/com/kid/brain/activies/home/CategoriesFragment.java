@@ -13,7 +13,7 @@ import com.ethanhua.skeleton.RecyclerViewSkeletonScreen;
 import com.ethanhua.skeleton.Skeleton;
 import com.google.gson.Gson;
 import com.kid.brain.R;
-import com.kid.brain.activies.checklist.CheckListActivity_;
+import com.kid.brain.activies.checklist.viewpager.ViewPagerCheckListActivity_;
 import com.kid.brain.managers.application.BaseFragment;
 import com.kid.brain.managers.help.KidBean;
 import com.kid.brain.managers.listeners.IOnItemClickListener;
@@ -239,7 +239,7 @@ public class CategoriesFragment extends BaseFragment {
         @Override
         public <T> void onItemClickListener(T object) {
             mCategory = (Category) object;
-            Intent intentProduct = new Intent(getActivity(), CheckListActivity_.class);
+            Intent intentProduct = new Intent(getActivity(), ViewPagerCheckListActivity_.class);
             intentProduct.putExtra(Constants.KEY_KID, mKid);
             intentProduct.putExtra(Constants.KEY_CATE, mCategory);
             startActivity(intentProduct);

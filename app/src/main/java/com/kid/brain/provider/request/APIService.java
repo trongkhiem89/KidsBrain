@@ -24,8 +24,11 @@ import retrofit2.http.Path;
 
 public interface APIService {
 
-    String BASE_URL = "http://103.101.161.178/";
-    String ENDPOINT = "KidsBrain/";
+//    String BASE_URL = "http://103.101.161.178/";
+//    String ENDPOINT = "KidsBrain/";
+    String BASE_URL = "http://babywash.vn/";
+    String ENDPOINT = "";
+//    String ENDPOINT = "api/";
 
     String SIGN_IN = ENDPOINT + "user/login";
     String SIGN_UP = ENDPOINT + "user/signup";
@@ -47,6 +50,7 @@ public interface APIService {
 
     String HISTORIES = ENDPOINT + "histories";
     String HISTORY = ENDPOINT + "history";
+    String DELETE_HISTORY = ENDPOINT + "test/delete";
 
     String RESULT_SAVING = ENDPOINT + "test";
     String RESULT_QUESTION_HISTORY = ENDPOINT + "test";
@@ -123,6 +127,11 @@ public interface APIService {
                                 @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
                                 @Path("user_id") long userId,
                                 @Path("kid_id") long kidId);
+
+    @GET(APIService.DELETE_HISTORY + "/{history_id}")
+    Call<TestResponse> deleteHistory(@Header(WebserviceConfig.HEADER_CONTENT_TYPE) String contentType,
+                                @Header(WebserviceConfig.HEADER_ACCEPT_LANGUAGE) String languageCode,
+                                @Path("history_id") String historyId);
 
 
     /*****************************************

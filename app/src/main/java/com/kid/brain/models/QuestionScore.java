@@ -12,10 +12,13 @@ public class QuestionScore implements Serializable {
     private Kid level;
     private String rateId;
     private int score;
+    private int totalScore;
     private String questionIds;
 
     public QuestionScore() {
         this.rateId = "0";
+        this.score = 0;
+        this.totalScore = 0;
     }
 
     public Category getCategory() {
@@ -42,6 +45,14 @@ public class QuestionScore implements Serializable {
         this.score = score;
     }
 
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
     public String getRateId() {
         return rateId;
     }
@@ -61,10 +72,11 @@ public class QuestionScore implements Serializable {
     @Override
     public String toString() {
         return "QuestionScore{" +
-                "category=" + category +
-                ", level=" + level +
+                "category=" + category.getId() +
+                ", level=" + level.getAgeId() +
                 ", rateId=" + rateId +
                 ", score=" + score +
+                ", totalScore=" + totalScore +
                 ", questionIds=" + questionIds +
                 '}';
     }

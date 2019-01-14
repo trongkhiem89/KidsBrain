@@ -42,6 +42,7 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -255,11 +256,17 @@ public class ViewPagerCheckListFragment extends BaseFragment {
                             mQuestionIdSelected.add(q.getId());
                         } else {
                             mScore--;
-                            for (Integer i : mQuestionIdSelected) {
+                            Iterator<Integer> iterator = mQuestionIdSelected.iterator();
+                            while(iterator.hasNext()){
+                                if (q.getId() == iterator.next()){
+                                    iterator.remove();
+                                }
+                            }
+                            /*for (Integer i : mQuestionIdSelected) {
                                 if (q.getId() == i) {
                                     mQuestionIdSelected.remove(i);
                                 }
-                            }
+                            }*/
                         }
                         break;
                     }

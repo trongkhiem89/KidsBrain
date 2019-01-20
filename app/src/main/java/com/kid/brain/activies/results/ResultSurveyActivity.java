@@ -81,13 +81,15 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
     @Extra(Constants.KEY_HISTORY)
     History mHistory;
 
+    @Extra(Constants.KEY_HISTORY_ID)
+    String mHistoryId;
+
     @Extra(Constants.KEY_SEARCH)
     boolean isFromSearchScreen;
 
     private String mKidId;
-    private String mHistoryId;
-    private List<Integer> mQuestionIdParams;
-    private List<ScoreRate> mCoreRateIdParams;
+    // private List<Integer> mQuestionIdParams;
+    // private List<ScoreRate> mCoreRateIdParams;
 
     @AfterExtras
     void afterExtras() {
@@ -106,8 +108,8 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
 
         if (mHistory == null) {
 
-            mQuestionIdParams = new ArrayList<>();
-            mCoreRateIdParams = new ArrayList<>();
+            // mQuestionIdParams = new ArrayList<>();
+            // mCoreRateIdParams = new ArrayList<>();
 
             // Todo: From check list
             mQuestionScore = KidBean.getInstance().getQuestionScores();
@@ -156,7 +158,7 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
 
                         llRoot.addView(view);
 
-                        if (!TextUtils.isEmpty(qc.getQuestionIds())) {
+                        /*if (!TextUtils.isEmpty(qc.getQuestionIds())) {
                             if (qc.getQuestionIds().contains(",")) {
                                 String[] dataIds = qc.getQuestionIds().split(",");
                                 for (String id : dataIds) {
@@ -167,14 +169,14 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                             }
                         }
 
-                        mCoreRateIdParams.add(new ScoreRate(qc.getScore(), Integer.parseInt(qc.getRateId())));
+                        mCoreRateIdParams.add(new ScoreRate(qc.getScore(), Integer.parseInt(qc.getRateId())));*/
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
 
 
-                try {
+                /*try {
                     ResultSavingParams params = new ResultSavingParams();
                     params.setQuestionIds(mQuestionIdParams);
                     params.setRatingIds(mCoreRateIdParams);
@@ -184,7 +186,7 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
                     doSaveResult(params);
                 } catch (Exception e) {
                     e.printStackTrace();
-                }
+                }*/
             }
         } else {
             // Todo: From history
@@ -238,44 +240,48 @@ public class ResultSurveyActivity extends BaseAppCompatActivity {
         startActivity(BookingActivity_.class, mHistoryId, Constants.KEY_HISTORY_ID);
     }
 
-    void doSaveResult(ResultSavingParams params) throws Exception {
-        HeaderSession header = new HeaderSession();
-        APIService apiService = RetrofitConfig.getInstance(ResultSurveyActivity.this).getRetrofit().create(APIService.class);
-        Call<TestResponse> callUser = apiService.saveResult(
-                header.getContentType(),
-                header.getLanguageCode(),
-                Long.parseLong(KidApplication.mKidTested.getChildrenId()),
-                params);
-        callUser.enqueue(new Callback<TestResponse>() {
-            @Override
-            public void onResponse(Call<TestResponse> call, Response<TestResponse> response) {
-                try {
-                    if (WebserviceConfig.HTTP_CODE.OK == response.code()) {
-                        TestResponse responseResult = response.body();
-                        if (responseResult != null && responseResult.getHistory() != null) {
-                            mHistoryId = responseResult.getHistory().getHistoryId();
-                            dismissProgressBar();
+    /*void doSaveResult(ResultSavingParams params) throws Exception {
+        if (NetworkUtil.isConnected(this)) {
+            showProgressBar(getString(R.string.dialog_message_saving));
+            HeaderSession header = new HeaderSession();
+            APIService apiService = RetrofitConfig.getInstance(ResultSurveyActivity.this).getRetrofit().create(APIService.class);
+            Call<TestResponse> callUser = apiService.saveResult(
+                    header.getContentType(),
+                    header.getLanguageCode(),
+                    Long.parseLong(KidApplication.mKidTested.getChildrenId()),
+                    params);
+            callUser.enqueue(new Callback<TestResponse>() {
+                @Override
+                public void onResponse(Call<TestResponse> call, Response<TestResponse> response) {
+                    try {
+                        dismissProgressBar();
+                        if (WebserviceConfig.HTTP_CODE.OK == response.code()) {
+                            TestResponse responseResult = response.body();
+                            if (responseResult != null && responseResult.getHistory() != null) {
+                                mHistoryId = responseResult.getHistory().getHistoryId();
+                                dismissProgressBar();
+                            } else {
+                                dismissProgressBar();
+                            }
                         } else {
                             dismissProgressBar();
+                            String strError = readIn(response.errorBody().byteStream());
+                            Error error = new Gson().fromJson(strError, Error.class);
+                            showErrorDialog(error);
                         }
-                    } else {
-                        dismissProgressBar();
-                        String strError = readIn(response.errorBody().byteStream());
-                        Error error = new Gson().fromJson(strError, Error.class);
-                        showErrorDialog(error);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
 
-            @Override
-            public void onFailure(Call<TestResponse> call, Throwable t) {
-                dismissProgressBar();
-                t.printStackTrace();
-            }
-        });
-    }
+                @Override
+                public void onFailure(Call<TestResponse> call, Throwable t) {
+                    dismissProgressBar();
+                    t.printStackTrace();
+                }
+            });
+        }
+    }*/
 
     void doSaveSearchHistory() throws Exception {
         if (NetworkUtil.isConnected(this)) {
